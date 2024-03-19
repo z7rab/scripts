@@ -45,7 +45,7 @@ Section:NewToggle("YIPEE", "7rab#0000", function(state)
 
 		}
 		for _,v in pairs(yipeeTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if yipeeCond==false then
 				break
@@ -89,7 +89,7 @@ Section:NewToggle("WYSI", "7rab#0000", function(state)
 
 		}
 		for _,v in pairs(wysiTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if wysiCond==false then
 				break
@@ -134,7 +134,7 @@ Section:NewToggle("Happy Cat", "7rab#0000", function(state)
 
 		}
 		for _,v in pairs(happyCatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if happyCatCond==false then
 				break
@@ -181,7 +181,7 @@ spinningRatCond = true
 
 		}
 		for _,v in pairs(spinningRatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if spinningRatCond==false then
 				break
@@ -223,7 +223,7 @@ capybaraCarCond = true
 
 		}
 		for _,v in pairs(capybaraCarTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if capybaraCarCond==false then
 				break
@@ -263,7 +263,7 @@ skullExplodeCond = true
             "9835255683",
 		}
 		for _,v in pairs(skullExplodeTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if skullExplodeCond==false then
 				break
@@ -302,7 +302,7 @@ Section:NewToggle("Skull Impload", "7rab#0000", function(state)
 			"9835255720",
 		}
 		for _,v in pairs(skullImploadTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if skullImploadCond==false then
 				break
@@ -345,7 +345,7 @@ Section:NewToggle("RIP Cat", "7rab#0000", function(state)
 			"9835316775",
 		}
 		for _,v in pairs(ripCatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if ripCatCond==false then
 				break
@@ -382,7 +382,7 @@ Section:NewToggle("Water Cat", "7rab#0000", function(state)
 			"9835462435",
 		}
 		for _,v in pairs(waterCatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if waterCatCond==false then
 				break
@@ -434,7 +434,7 @@ Section:NewToggle("Pug", "7rab#0000", function(state)
 			"9837094525",
 		}
 		for _,v in pairs(pugTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A GOTH GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if pugCond==false then
 				break
