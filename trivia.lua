@@ -1,181 +1,205 @@
+getgenv().doTrivia = true  -- on and off toggle / might not work if executed a second time
 
-local trivia = {
-    ["What is the capital of France?"] = "Paris",
-    ["What is the largest continent in the world?"] = "Asia",
-    ["Who wrote the Harry Potter series of books?"] = "J.K. Rowling",
-    ["What is the currency of Japan?"] = "Yen",
-    ["What is the smallest planet in our solar system?"] = "Mercury",
-    ["Who was the first president of the United States?"] = "George Washington",
-    ["What is the name of the world's largest ocean?"] = "Pacific Ocean",
-    ["What is the chemical symbol for gold?"] = "Au",
-    ["What is the highest mountain in the world?"] = "Mount Everest",
-    ["What is the largest country in the world by land area?"] = "Russia",
-    ["Which country gifted the Statue of Liberty to the United States?"] = "France",
-    ["What is the name of the river that flows through Egypt?"] = "Nile",
-    ["Who was the lead singer of the band Queen?"] = "Freddie Mercury",
-    ["What is the currency of Brazil?"] = "Real",
-    ["What is the chemical symbol for oxygen?"] = "O",
-    ["What is the capital of Spain?"] = "Madrid",
-    ["What is the smallest country in the world by land area?"] = "Vatican City",
-    ["Which country is famous for inventing pizza?"] = "Italy",
-    ["What is the name of the world's tallest animal?"] = "Giraffe",
-    ["What is the currency of the United Kingdom?"] = "Pound sterling",
-    ["What is the chemical symbol for carbon?"] = "C",
-    ["Who won the FIFA Women's World Cup in 2019?"] = "United States",
-    ["What is the capital of Australia?"] = "Canberra",
-    ["Who wrote the book '1984'?"] = "George Orwell",
-    ["What is the name of the currency used in China?"] = "Yuan",
-    ["What is the largest mammal in the world?"] = "Blue whale",
-    ["What is the chemical symbol for sodium?"] = "Na",
-    ["Which planet in our solar system has the most moons?"] = "Jupiter",
-    ["What is the name of the world's largest desert?"] = "Sahara",
-    ["What is the name of the first satellite launched into space?"] = "Sputnik",
-    ["What is the smallest country in the world by population?"] = "Vatican City",
-    ["Who wrote the famous novel 'Pride and Prejudice'?"] = "Jane Austen",
-    ["What is the name of the currency used in India?"] = "Rupee",
-    ["What is the name of the world's largest land animal?"] = "Elephant",
-    ["What is the chemical symbol for iron?"] = "Fe",
-    ["Which planet in our solar system is the hottest?"] = "Venus",
-    ["What is the name of the world's largest waterfall?"] = "Victoria Falls",
-    ["What is the name of the first man to walk on the moon?"] = "Neil Armstrong",
-}
+apiUrl = "https://the-trivia-api.com/api/questions?limit=1&difficulty=hard&tags=geography" -- if you want to make your own settings, go here (https://the-trivia-api.com/docs/) and paste the url / keep limit to 1 
+getgenv().announceSkippingHastags = false -- if your booth has hashtags it will automatically skip - if you want to say in chat that is skipping, set this to true
+
+
+getgenv().timeLeft = 0
+getgenv().answered = false
+getgenv().skipping = false
+getgenv().scoreboard = {}
+getgenv().round = 0
 
 
 
 
+local events = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
+local messageDoneFiltering = events:WaitForChild("OnMessageDoneFiltering")
+local players = game:GetService("Players")
 
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-local Window = Rayfield:CreateWindow({
-	Name = "777 Hub",
-	LoadingTitle = "777 Hub is loading!",
-	LoadingSubtitle = "by 7rab",
-	ConfigurationSaving = {
-		Enabled = true,
-		FolderName = "777Hub", -- Create a custom folder for your hub/game
-		FileName = "Configs"
-	},
-        Discord = {
-        	Enabled = false,
-        	Invite = "", -- The Discord invite code, do not include discord.gg/
-        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-        },
-	KeySystem = true, -- Set this to true to use our key system
-	KeySettings = {
-		Title = "777 Hub",
-		Subtitle = "Key System!",
-		Note = "DM 7rab#0 For the key!",
-		FileName = "777Key",
-		SaveKey = true,
-		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-		Key = "777rab"
-	}
-})
+local Https = game:GetService('HttpService')
+local hp = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or _senv.request or request or Https and Https.request
 
-local Tab = Window:CreateTab("MAIN") -- Title, Image
-local Tab1 = Window:CreateTab("CONFIG")
+function getScore(player)
+    for i,v in pairs(scoreboard) do
+        if v[player] ~= nil then
+            return v[player]
+        end
+    end
+    return false
+end
 
-local Section = Tab1:CreateSection("Config")
-local Section1 = Tab:CreateSection("Main")
+function addPoints(player, points)
+    points = points or 3
+    for i,v in pairs(scoreboard) do
+        if v[player] ~= nil then
+            v[player] = v[player] + 3
+            return
+        end
+    end
+    warn("player not found in scoreboard")
+    return false
+end
 
-local sec = 10
-local Slider = Tab1:CreateSlider({
-	Name = "Seconds",
-	Range = {0, 100},
-	Increment = 5,
-	Suffix = "Second countdown",
-	CurrentValue = 10,
-	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(Value)
-		sec = Value
-	end,
-})
+function getQuestion()
+    content = hp(
+        {
+            Url = apiUrl,  
+            Method = "GET"
+        }
+    )
+    content = content.Body
+    content = game:GetService("HttpService"):JSONDecode(content)
+    return content
+end
 
-local randoquest = ""
-local quest = ""
-local an = ""
-local Input = Tab1:CreateInput({
-	Name = "Question",
-	PlaceholderText = "What do you want to ask?",
-	RemoveTextAfterFocusLost = false,
-	Callback = function(Text)
-    	quest = Text
-	end,
-})
+function setBooth(text, imageId)
+    local args = {
+        [1] = "Update",
+        [2] = {
+            ["DescriptionText"] = text,
+            ["ImageId"] = imageId
+        }
+    }
+    game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
+end
 
-local run = false
-local Button = Tab:CreateButton({
-	Name = "START",
-	Callback = function()
-	    
-	  
-	    if quest == "" then
-    	    Rayfield:Notify({
-        Title = "ANSWER:",
-        Content = an,
-        Duration = 6.5,
-        Image = 4483362458,
-        Actions = { -- Notification Buttons
-            Ignore = {
-                Name = "Okay!",
-                Callback = function()
+function parseAnswers(table)
+    answers = ""
+    for _, answer in pairs(table) do
+        if answers == "" then
+            answers = answer
+        else
+            answers = answers .. "\n" .. answer
+        end
+    end
+    return answers
+end
+
+function shuffle(array)
+    math.randomseed(tick())
+    local output = { }
+    local random = math.random
+
+    for index = 1, #array do
+        local offset = index - 1
+        local value = array[index]
+        local randomIndex = offset*random()
+        local flooredIndex = randomIndex - randomIndex%1
+
+        if flooredIndex == offset then
+            output[#output + 1] = value
+        else
+            output[#output + 1] = output[flooredIndex + 1]
+            output[flooredIndex + 1] = value
+        end
+    end
+    return output
+    -- stole this from stack overflow, just used to shuffle all the answers
+end
+
+function getBooth()
+    closestDistance = math.huge
+    closestBooth = nil
+    for _, booth in pairs(workspace:GetChildren()) do
+        if booth.Name == "Booth" and booth:FindFirstChild("Banner") then
+            distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - booth.Banner.Position).magnitude
+            if distance < closestDistance then
+                closestDistance = distance
+                closestBooth = booth
+            end
+        end
+    end
+    return closestBooth
+end
+
+getgenv().correctAnswer = "setting up"
+getgenv().correctPlayer = nil
+getgenv().correctPlayerScore = nil
+
+messageDoneFiltering.OnClientEvent:Connect(function(message)
+    local player = players:FindFirstChild(message.FromSpeaker)
+    local message = message.Message or ""
+    
+    if player == game.Players.LocalPlayer and message == "pass" then
+        skipping = true
+        timeLeft = 0
+    end
+    
+    if answered == false then
+        if string.match(correctAnswer:lower(), message:lower()) then
+            if string.len(string.match(correctAnswer:lower(), message:lower())) >= 4 then
+                local playerScore = getScore(player.Name)
+                
+                answered = true
+                correctPlayer = player.DisplayName
+                
+                if playerScore ~= false then
+                    correctPlayerScore =  playerScore + 3
+                    addPoints(player.Name)
+                else
+                    table.insert(scoreboard, {[player.Name] = 3})
+                    correctPlayerScore = 3
                 end
-    		},
-    	},
-    })
-    	    run = true
-    		local i = sec
-    		while i > 0 and run do
-                game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = string.format("%s Seconds remaining: %d", randoquest, i),["ImageId"] = 11592534076})
-    		    i = i-1
-    		    task.wait(1)
-    		end
-    		game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = "TIMES UP!",["ImageId"] = 0})
-    		task.wait(3)
-    		game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = string.format("The answer was: %s", an),["ImageId"] = 1524413150})
-    		task.wait(3)
-    		game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = "Trivia Game: Step up to play!",["ImageId"] = 0})
-    		run = false
-    	else
-    	    run = true
-    		local i = sec
-    		while i > 0 and run do
-                game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = string.format("%s Seconds remaining: %d", quest, i),["ImageId"] = 11592534076})
-    		    i = i-1
-    		    task.wait(1)
-    		end
-    		if run == true then
-        		game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = "TIMES UP!",["ImageId"] = 0})
-        		task.wait(3)
-        		game:GetService("ReplicatedStorage").CustomiseBooth:FireServer("Update",{["DescriptionText"] = "Trivia Game: Step up to play!",["ImageId"] = 0})
-        		run = false
-    		end
-	    end
-	end,
-})
-
-local Button2 = Tab:CreateButton({
-	Name = "END EARLY",
-	Callback = function()
-		run = false
-	end,
-})
-
-local Button3 = Tab1:CreateButton({
-	Name = "RANDOM QUESTION",
-	Callback = function()
-	    local keys = {}
-	    local values = {}
-        for k, v in pairs(trivia) do
-            table.insert(keys, k)
+            end
         end
-        for k, v in pairs(trivia) do
-            table.insert(values, v)
+    end
+end)
+
+
+while wait() and doTrivia do
+
+
+    if timeLeft <= 0 then
+        
+        if skipping == false then
+            setBooth("The answer was " .. correctAnswer, 281338499)
+            round = round + 1
+            wait(3)
+                        
+        else
+            skipping = false
         end
-		randoquest = keys[math.random(#keys)]
-		an = trivia[randoquest]
-		print(randoquest)
-		print(an)
-		
-	end,
-})
+        
+        timeLeft = 120
+        
+        query = getQuestion()[1]
+        
+        question = query["question"]
+        correctAnswer = query["correctAnswer"]
+        incorrectAnswers = query["incorrectAnswers"]
+        
+        allAnswers = incorrectAnswers
+        table.insert(allAnswers, correctAnswer)
+        allAnswers = shuffle(allAnswers)
+    end
+    
+    if answered == true then
+        setBooth(correctPlayer .. " answered correct and now has " .. correctPlayerScore .. " Vbucks", 6641087396)
+        wait(3)
+        answered = false
+        timeLeft = 0
+    end
+    
+    timeLeft = timeLeft - 1
+    
+    if timeLeft > 0 then
+        combined = question .. " " .. "[" .. timeLeft .. "]".. "\n" .. parseAnswers(allAnswers)
+        setBooth(combined, 10494071008)
+    end
+    
+    
+    
+    wait(1)
+    
+    if string.match(getBooth().Banner.SurfaceGui.Frame.Description.Text, "#") then
+        timeLeft = 0
+        if announceSkippingHastags then
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Hashtags found - skipping", "All")
+        end
+        skipping = true
+    end
+    
+    
+end
