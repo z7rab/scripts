@@ -1,6 +1,6 @@
 getgenv().doTrivia = true  -- on and off toggle / might not work if executed a second time
 
-apiUrl = "https://the-trivia-api.com/api/questions?limit=1&difficulty=hard&tags=geography" -- if you want to make your own settings, go here (https://the-trivia-api.com/docs/) and paste the url / keep limit to 1 
+apiUrl = "https://the-trivia-api.com/api/questions?categories=history,geography,general_knowledge&limit=1&difficulty=medium&tags=arts_and_literature,geography" -- if you want to make your own settings, go here (https://the-trivia-api.com/docs/) and paste the url / keep limit to 1 
 getgenv().announceSkippingHastags = false -- if your booth has hashtags it will automatically skip - if you want to say in chat that is skipping, set this to true
 
 
@@ -38,7 +38,7 @@ function addPoints(player, points)
             return
         end
     end
-    warn("player not found in scoreboard")
+    warn("Player was not found in the scoreboard | Left or Disconnected")
     return false
 end
 
@@ -114,7 +114,7 @@ function getBooth()
     return closestBooth
 end
 
-getgenv().correctAnswer = "setting up"
+getgenv().correctAnswer = "Setting up the trivia game..."
 getgenv().correctPlayer = nil
 getgenv().correctPlayerScore = nil
 
@@ -154,7 +154,7 @@ while wait() and doTrivia do
     if timeLeft <= 0 then
         
         if skipping == false then
-            setBooth("The answer was " .. correctAnswer, 281338499)
+            setBooth("The correct answer was " .. correctAnswer, 10511856020)
             round = round + 1
             wait(3)
                         
@@ -162,7 +162,7 @@ while wait() and doTrivia do
             skipping = false
         end
         
-        timeLeft = 120
+        timeLeft = 60
         
         query = getQuestion()[1]
         
@@ -176,7 +176,7 @@ while wait() and doTrivia do
     end
     
     if answered == true then
-        setBooth(correctPlayer .. " answered correct and now has " .. correctPlayerScore .. " Vbucks", 6641087396)
+        setBooth(correctPlayer .. " Got the right answer and now has " .. correctPlayerScore .. " points!", 10511856020)
         wait(3)
         answered = false
         timeLeft = 0
@@ -194,7 +194,7 @@ while wait() and doTrivia do
     wait(1)
     
     if string.match(getBooth().Banner.SurfaceGui.Frame.Description.Text, "#") then
-        timeLeft = 0
+        timeLeft = 59
         if announceSkippingHastags then
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Hashtags found - skipping", "All")
         end
