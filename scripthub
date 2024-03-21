@@ -1,11 +1,14 @@
-Infinite yield:
+-- Infinite yield:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
-Nameless admin:
+-- Nameless admin:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
 
-Char-bot:
+-- Char-bot:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/lmaooa1043/scripts/main/charbot.lua"))()
 
-RMA:
+-- RMA:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/lmaooa1043/scripts/main/rma.lua"))()
+
+-- Trivia:
+loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/trivia.lua'))()
