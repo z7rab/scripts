@@ -12,3 +12,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/lmaooa1043/scripts/ma
 
 -- Trivia:
 loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/trivia.lua'))()
+
+-- Speed City
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/ShizoHub.lua'))()
