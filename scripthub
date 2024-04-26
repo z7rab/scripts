@@ -6,14 +6,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 -- Nameless admin:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
 
--- Char-bot:
-loadstring(game:HttpGet("https://raw.githubusercontent.com/lmaooa1043/scripts/main/charbot.lua"))()
-
--- RMA:
-loadstring(game:HttpGet("https://raw.githubusercontent.com/lmaooa1043/scripts/main/rma.lua"))()
-
--- Trivia:
-loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/trivia.lua'))()
-
 -- Speed City
 loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/ShizoHub.lua'))()
