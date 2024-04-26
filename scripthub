@@ -1,3 +1,5 @@
+-- Ignore this plain text file!, it is a txt file i randomly made lol!
+
 -- Infinite yield:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
