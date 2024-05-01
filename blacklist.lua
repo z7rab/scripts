@@ -1,12 +1,12 @@
 return {
     blacklistedIDs = {
-        [4069206905] = true, -- KingWay
-        [1897359984] = true, -- PoweredWay
-        [1972686697] = true, --Afric
+        [4069206905] = true, -- Perma-Blacklist, KingWay
+        [1897359984] = true, -- Perma-Blacklist, PoweredWay
+        [1972686697] = true, -- Perma-Blacklist, Afric
     },
     blacklistedUsernames = {
-        ["King123coolest1"] = true, -- KingWay, Hacked into a nonexistant database.
-        ["PoweredWay"] = true, -- PoweredWay, Told me i wouldnt make it
-        ["5DollarP"] = true, -- Afric, Saying that me and king should make out
+        ["King123coolest1"] = true,-- Perma-Blacklist, KingWay, Hacked into a nonexistant database.
+        ["PoweredWay"] = true, -- Perma-Blacklist, PoweredWay, Told me i wouldnt make it
+        ["5DollarP"] = true, -- Perma-Blacklist, Afric, Saying that me and king should make out
     }
 }
