@@ -28,7 +28,6 @@ return {
         [687968198] = true, -- PB, Tixcyy Stand Co-Creator Alt ( IUX )
         [4758490406] = true, -- PB, Tixcyy Stand Co-Creator ( Seth )
         [2476532246] = true, -- PB, ObeseKid
-        [943250292] = true, -- PB, Owner
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
