@@ -386,6 +386,7 @@ return {
         [3482772195] = true,
         [4624493186] = true,
         -- End of tixcyy stand premiums, PB above!
+        [943250292] = true,
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
