@@ -12,7 +12,7 @@ For retards, PB = Perma-Blacklisted
 return {
     blacklistedIDs = {
         [1] = true, -- PB, Roblox
---        [4069206905] = true, -- PB, KingWay
+        [4069206905] = true, -- PB, KingWay
         [1897359984] = true, -- PB, PoweredWay
         [1972686697] = true, -- PB, Afric
         [193652114] = true, -- PB, Mystic
@@ -386,10 +386,11 @@ return {
         [3482772195] = true,
         [4624493186] = true,
         -- End of tixcyy stand premiums, PB above!
+        [5843515803] = true, -- PB, Afric Alt
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
---        ["King123coolest1"] = true, -- PB, KingWay
+        ["King123coolest1"] = true, -- PB, KingWay
         ["PoweredWay"] = true, -- PB, PoweredWay
         ["5DollarP"] = true, -- PB, Afric
         ["1xMystic"] = true, -- PB, Mystic
@@ -404,6 +405,7 @@ return {
         ["ClientSidee"] = true, -- PB, Tixcyy Stand Co-Creator ( IUX )
         ["lIIIIlIIllllllllIIl"] = true, -- PB, Tixcyy Stand Co-Creator Alt ( IUX )
         ["hatredframe"] = true, -- PB, Tixcyy Stand Co-Creator ( SETH )
-        ["obese2drippy"] = true, -- PB, ObeseKid   
+        ["obese2drippy"] = true, -- PB, ObeseKid 
+        ["4DollarP"] = true, -- PB, Afric Alt
     }
 }
