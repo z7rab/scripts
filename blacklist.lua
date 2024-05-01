@@ -18,6 +18,7 @@ return {
         [193652114] = true, -- PB, Mystic
         [1672135289] = true, -- PBt, RestrictedWay
         [1653161605] = true, -- PB, RestrictedWay
+        [111322759] = true, -- PB, The cat pfp nigga
         [3742702895] = true, -- PB, Powered's Alt
         [5816956713] = true, -- PB, Powered's Alt
         [5785414856] = true, -- PB, Powered's Alt
@@ -395,6 +396,7 @@ return {
         ["5DollarP"] = true, -- PB, Afric
         ["1xMystic"] = true, -- PB, Mystic
         ["k1rby92"] = true, -- PB, RestrictedWay
+        ["Fluzxus"] = true, -- PB, The cat pfp nigga
         ["kevinedwerdsjg"] = true, -- PB, ElectricWay
         ["PoweredWay_ALT"] = true, -- PB, Powered's Alts
         ["PoweredsWay_ALT"] = true, -- PB, Powered's Alts
