@@ -12,7 +12,7 @@ For retards, PB = Perma-Blacklisted
 return {
     blacklistedIDs = {
         [1] = true, -- PB, Roblox
---        [4069206905] = true, -- PB, KingWay
+        [4069206905] = true, -- PB, KingWay
         [1897359984] = true, -- PB, PoweredWay
         [1972686697] = true, -- PB, Afric
         [193652114] = true, -- PB, Mystic
@@ -392,7 +392,7 @@ return {
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
---        ["King123coolest1"] = true, -- PB, KingWay
+        ["King123coolest1"] = true, -- PB, KingWay
         ["PoweredWay"] = true, -- PB, PoweredWay
         ["5DollarP"] = true, -- PB, Afric
         ["1xMystic"] = true, -- PB, Mystic
