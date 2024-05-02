@@ -388,6 +388,7 @@ return {
         [4624493186] = true,
         -- End of tixcyy stand premiums, PB above!
         [5843515803] = true, -- PB, Afric Alt
+        [2429520673] = true, -- BoosieFade
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
@@ -409,5 +410,6 @@ return {
         ["hatredframe"] = true, -- PB, Tixcyy Stand Co-Creator ( SETH )
         ["obese2drippy"] = true, -- PB, ObeseKid 
         ["4DollarP"] = true, -- PB, Afric Alt
+        ["Hydrostriker2"] = true, -- BoosieFade
     }
 }
