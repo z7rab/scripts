@@ -411,5 +411,6 @@ return {
         ["obese2drippy"] = true, -- PB, ObeseKid 
         ["4DollarP"] = true, -- PB, Afric Alt
         ["Hydrostriker2"] = true, -- BoosieFade
+        ["T_azb"] = true, -- Owner
     }
 }
