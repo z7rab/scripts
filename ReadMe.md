@@ -30,11 +30,7 @@ Once the script is activated, you can access the different autofarm features by 
 
 ## Disclaimer
 
-This script is provided for educational and entertainment purposes only. Use it responsibly and at your own risk. The developers of this script are not responsible for any consequences resulting from the use of this script, including but not limited to bans or penalties imposed by the game's administrators.
-
-## Contributions
-
-Contributions to this script are welcome! If you have any suggestions, improvements, or bug fixes, feel free to open an issue or submit a pull request on GitHub.
+This script is provided for educational and entertainment purposes only. Use it responsibly and at your own risk. The developers of this script are not responsible for any consequences resulting from the use of this script, including but not limited to bans or penalties imposed by the game's administrators. You also give access to the owner to deactivate, ban, blacklist your Roblox PlayerID and PlayerName and PlatoKey, You also give the owner access to ban / kick you from any game that you executed the script on.
 
 ## License
 
