@@ -3,8 +3,11 @@
 -- Infinite yield:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
+-- Simple Spy
+loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+
 -- Nameless admin:
-loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FD2Team/Nameless-Admin-No-Byfron-Kick/main/Source",true))()
 
 -- Speed City
 loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/ShizoHub.lua'))()
