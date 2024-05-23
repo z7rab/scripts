@@ -1,6 +1,6 @@
 --[[
 
-ShizoHub Blacklist
+ShizoHub and Invictus Blacklist
 
 Blacklisted UserIDS and Usernames,
 Dont think your a skidlord supreme by leaking this, if i really wanted to hide it you wouldnt find it anywhere
