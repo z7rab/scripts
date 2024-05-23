@@ -409,6 +409,5 @@ return {
         ["hatredframe"] = true, -- PB, Tixcyy Stand Co-Creator ( SETH )
         ["obese2drippy"] = true, -- PB, ObeseKid 
         ["4DollarP"] = true, -- PB, Afric Alt
-        ["T_azb"] = true, -- Testing, Invictus Blacklist
     }
 }
