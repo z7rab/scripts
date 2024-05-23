@@ -1,6 +1,11 @@
+# ROBLOX EXPLOITING NEWS!
+
+Krampus has shutdown! This only leaves you with one executor (which is solara for pc)
+Solara releases: https://discord.gg/getsolara
+
 # Speed City Popular Script
 
-This is a popular script for the gam [Speed City](https://www.roblox.com/games/2636441885/Speed-City). on the Roblox platform. It provides several autofarm features for different cities within the game, as well as additional functionalities to enhance the gameplay experience.
+This is a popular script for the game [Speed City](https://www.roblox.com/games/2636441885/Speed-City). on the Roblox platform. It provides several autofarm features for different cities within the game, as well as additional functionalities to enhance the gameplay experience.
 
 ## Features
 
@@ -18,11 +23,11 @@ This is a popular script for the gam [Speed City](https://www.roblox.com/games/2
 
 To use this script, follow these steps:
 
-1. Download and install a compatible and up-to-date Roblox exploit injector. (Etc Krampus, 8 USD a week)
+1. Download and install a compatible and up-to-date Roblox exploit injector. (Etc Solara, which is free!)
 2. Copy the script from the repository.
 3. Paste the script into the exploit injector.
 4. Launch Speed City on Roblox.
-5. Execute the script in the game to activate the features.
+5. Execute the script.
 
 ## Usage
 
