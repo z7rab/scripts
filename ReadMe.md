@@ -1,6 +1,6 @@
 # Speed City Popular Script
 
-This is a popular script for the game [Speed City](https://www.roblox.com/games/2636441885/Speed-City). on the Roblox platform. It provides several autofarm features for different cities within the game, as well as additional functionalities to enhance the gameplay experience.
+This is a popular script for the gam [Speed City](https://www.roblox.com/games/2636441885/Speed-City). on the Roblox platform. It provides several autofarm features for different cities within the game, as well as additional functionalities to enhance the gameplay experience.
 
 ## Features
 
