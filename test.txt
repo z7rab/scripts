@@ -13,6 +13,7 @@ local A = charX:WaitForChild("Humanoid")
 local p = game:GetService("Players")
 local lp = game:FindService("Players").LocalPlayer
 local player = game.Players.LocalPlayer
+local versionUrl = "https://raw.githubusercontent.com/lmaooa1043/scripts/main/invictusversion.txt"
 local BootTime = os.time()
 local whitelisted = {
     ["T_azb"] = true,
@@ -103,6 +104,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 		end)
 	end
 end)
+
 
 function banPlayer()
     if targetPlayer then
@@ -304,32 +306,89 @@ function ModNotification()
     end
 end
 
+
 local commands = {
-    ["ban"] = banPlayer,
-    ["kick"] = kickPlayer,
-    ["spin"] = spinPlayer,
-    ["fling"] = flingPlayer,
-    ["dance"] = dancePlayer,
-    ["dance1"] = dance1Player,
-    ["dance2"] = dance2Player,
-    ["dance3"] = dance3Player,
-    ["thaw"] = thawPlayer,
-    ["freeze"] = freezePlayer,
-    ["reset"] = resetPlayer,
-    ["credits"] = CreditsInvictus,
-    ["rule"] = RuleInvictus,
-    ["rate"] = RateOwner5,
-    ["warncmd"] = rblxwarnCMD,
-    ["bring"] = bringPlayers,
-    ["blacklistKick"] = blacklistKick,
-    ["rejoin"] = rejoinPlayer,
-    ["mod"] = ModNotification,
+    [".bring"] = function(player)
+        bringPlayers()
+    end,
+    [".ban"] = function(player)
+        banPlayer()
+    end,
+    [".kick"] = function(player)
+        kickPlayer()
+    end,
+    [".spin"] = function(player)
+        spinPlayer()
+    end,
+    [".fling"] = function(player)
+        flingPlayer()
+    end,
+    [".dance"] = function(player)
+        dancePlayer()
+    end,
+    [".dance2"] = function(player)
+        dance2Player()
+    end,
+    [".dance3"] = function(player)
+        dance3Player()
+    end,
+    [".dance1"] = function(player)
+        dance1Player()
+    end,
+    [".freeze"] = function(player)
+        freezePlayer()
+    end,
+    [".unfreeze"] = function(player)
+        thawPlayer()
+    end,
+    [".thaw"] = function(player)
+        thawPlayer()
+    end,
+    [".reset"] = function(player)
+        resetPlayer()
+    end,
+    [".credits"] = function(player)
+        CreditsInvictus()
+    end,
+    [".chat"] = function(player)
+        chatPlayer()
+    end,
+    [".rblxwarn"] = function(player)
+        rblxwarnCMD()
+    end,
+    [".rj"] = function(player)
+        rejoinPlayer()
+    end,
+    [".rejoin"] = function(player)
+        rejoinPlayer()
+    end,
+    [".blacklisted"] = function(player)
+        blacklistKick()
+    end,
+    ["/e mod"] = function(player)
+        ModNotification()
+    end,
+    ["/e rate"] = function(player)
+        RateOwner5()
+    end
 }
 
-
-targetPlayer.Chatted:Connect(function(msg)
-    local command = commands[msg:lower()]
-    if command then
-        command()
+local function onPlayerAdded(player)
+    if whitelisted[player.Name] then
+        player.Chatted:Connect(function(msg)
+            local args = string.split(msg, " ")
+            local command = args[1]
+            table.remove(args, 1)
+            local commandFunction = commands[command]
+            if commandFunction then
+                commandFunction(player, unpack(args))
+            end
+        end)
     end
-end)
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+for _, player in ipairs(Players:GetPlayers()) do
+    onPlayerAdded(player)
+end
