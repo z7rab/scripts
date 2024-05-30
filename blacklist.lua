@@ -392,6 +392,7 @@ return {
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
+        ["Litbiykj2010"] = true, -- PB, Spamming script
         ["King123coolest1"] = true, -- PB, KingWay
         ["PoweredWay"] = true, -- PB, PoweredWay
         ["5DollarP"] = true, -- PB, Afric
