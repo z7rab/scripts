@@ -29,6 +29,7 @@ return {
         [687968198] = true, -- PB, Tixcyy Stand Co-Creator Alt ( IUX )
         [4758490406] = true, -- PB, Tixcyy Stand Co-Creator ( Seth )
         [2476532246] = true, -- PB, ObeseKid
+        [4384689276] = true, -- PB, Spamming script
         -- Start of Tixcyy stand premium users, and tixcyy alt and friends, PB!
         [1346923718] = true,
         [2273544285] = true,
