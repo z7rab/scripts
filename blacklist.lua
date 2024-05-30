@@ -29,7 +29,8 @@ return {
         [687968198] = true, -- PB, Tixcyy Stand Co-Creator Alt ( IUX )
         [4758490406] = true, -- PB, Tixcyy Stand Co-Creator ( Seth )
         [2476532246] = true, -- PB, ObeseKid
-        [4384689276] = true, -- PB, Spamming script
+        [4384689276] = true, -- PB, Spamming script Corey
+        [6021110704] = true, -- PB, Spamming script Aura
         -- Start of Tixcyy stand premium users, and tixcyy alt and friends, PB!
         [1346923718] = true,
         [2273544285] = true,
@@ -392,7 +393,8 @@ return {
     },
     blacklistedUsernames = {
         ["Roblox"] = true, -- PB, Roblox
-        ["Litbiykj2010"] = true, -- PB, Spamming script
+        ["Litbiykj2010"] = true, -- PB, Spamming script corey
+        ["AuraCraftRNGI"] = true,
         ["King123coolest1"] = true, -- PB, KingWay
         ["PoweredWay"] = true, -- PB, PoweredWay
         ["5DollarP"] = true, -- PB, Afric
