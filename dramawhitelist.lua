@@ -13,6 +13,6 @@ return {
         [1] = true, -- PB, Roblox
     },
     whitelistedUsernames = {
-        ["T_azb"] = true, -- PB, Roblox
+        ["T_az1b"] = true, -- PB, Roblox
     }
 }
