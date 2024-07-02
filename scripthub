@@ -11,3 +11,30 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FD2Team/Nameless-Admi
 
 -- Speed City
 loadstring(game:HttpGet('https://raw.githubusercontent.com/lmaooa1043/scripts/main/ShizoHub.lua'))()
+
+
+
+-- nightmare.cc
+
+--[[
+
+This script has been made by 7rab | 7rab on top!
+Please execute this script on your alt, not main!
+----------------------------------------------
+Quote :
+"why did i rebrand to nightmare" - 7rab 2024
+----------------------------------------------
+If you remove the credits, you will be kicked upon execution.
+----------------------------------------------
+Make sure to invite more people, so we can update trials and host more bots!
+----------------------------------------------
+Please input the Owners username INSIDE the loader!
+
+]]
+
+getgenv().Credits = "7rab on discord | Made by 7rab"
+getgenv().Discord = "discord.gg/QGZARjgnVX | dsc.gg/getnightmare"
+getgenv().BetaGUI = true
+
+getgenv().NightmareController = "Your username"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/z7rab/nightmare.cc/main/nightmare.lua"))()
